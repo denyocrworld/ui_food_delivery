@@ -1,4 +1,3 @@
-import 'package:hyper_ui/state_util.dart';
 import 'package:hyper_ui/core.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/debug.dart';
@@ -14,7 +13,6 @@ void main() async {
 runMainApp() async {
   return runApp(const MainApp());
 }
-
 
 class MainApp extends StatelessWidget {
   const MainApp({Key? key}) : super(key: key);

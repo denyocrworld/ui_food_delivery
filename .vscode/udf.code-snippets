@@ -1,6 +1,0 @@
-{
-  "snippet_example": {
-    "prefix": "snippet_example",
-    "body": "print(\"~~~~~~~~~~~~~~~~~~~~\");\nprint(\"~~~~~~~~~~~~~~~~~~~~\");\nprint(\"~~~~~~~~~~~~~~~~~~~~\");"
-  }
-}
