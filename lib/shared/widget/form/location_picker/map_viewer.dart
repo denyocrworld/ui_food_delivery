@@ -37,7 +37,10 @@ class _MapViewerState extends State<MapViewer> {
         FlutterMap(
           mapController: widget.controller,
           options: MapOptions(
+            
+            
             center: LatLng(latitude, longitude),
+            
             zoom: 13.0,
             onPositionChanged: (pos, _) {
               if (widget.onPositionChanged != null) {
@@ -50,6 +53,18 @@ class _MapViewerState extends State<MapViewer> {
               urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
               userAgentPackageName: 'com.example.app',
             ),
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           ],
         ),
         Align(

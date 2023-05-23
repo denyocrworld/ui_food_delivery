@@ -84,6 +84,9 @@ class _QAutoCompleteState extends State<QAutoComplete> {
                   ),
                 );
               },
+              
+              
+              
               onSelected: (Map map) {
                 String? label = map["label"];
                 dynamic value = map["value"];
@@ -118,7 +121,7 @@ class _QAutoCompleteState extends State<QAutoComplete> {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: Theme.of(globalContext)
+                              color: Theme.of(Get.currentContext)
                                   .scaffoldBackgroundColor,
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(12.0),

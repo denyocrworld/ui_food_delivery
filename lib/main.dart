@@ -5,6 +5,7 @@ import 'package:hyper_ui/debug.dart';
 void main() async {
   await initialize();
 
+  
   Get.mainTheme.value = getDarkTheme();
   runMainApp();
 }
@@ -12,6 +13,7 @@ void main() async {
 runMainApp() async {
   return runApp(const MainApp());
 }
+
 
 class MainApp extends StatelessWidget {
   const MainApp({Key? key}) : super(key: key);

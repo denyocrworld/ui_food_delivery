@@ -1,6 +1,18 @@
 import 'package:hyper_ui/core.dart';
 import 'package:flutter/material.dart';
 
+
+
+
+
+
+
+
+
+
+
+
+
 snackbarPrimary({required String message, int duration = 4}) {
   var snackBar = SnackBar(
     duration: Duration(seconds: duration),
@@ -84,6 +96,8 @@ snackbarWarning({required String message, int duration = 4}) {
   );
   ScaffoldMessenger.of(globalContext).showSnackBar(snackBar);
 }
+
+
 
 snackbarSoftPrimary({required String message, int duration = 4}) {
   var snackBar = SnackBar(
@@ -343,6 +357,8 @@ snackbarSoftWarning({required String message, int duration = 4}) {
   ScaffoldMessenger.of(globalContext).showSnackBar(snackBar);
 }
 
+
+
 snackbarIconSoftPrimary(
     {required String message,
     int duration = 4,
@@ -450,6 +466,7 @@ snackbarIconSoftSecondary(
   );
   ScaffoldMessenger.of(globalContext).showSnackBar(snackBar);
 }
+
 
 snackbarIconSoftSuccess(
     {required String message,
@@ -559,6 +576,7 @@ snackbarIconSoftDanger(
   ScaffoldMessenger.of(globalContext).showSnackBar(snackBar);
 }
 
+
 snackbarIconSoftInfo(
     {required String message,
     int duration = 4,
@@ -613,6 +631,7 @@ snackbarIconSoftInfo(
   ScaffoldMessenger.of(globalContext).showSnackBar(snackBar);
 }
 
+
 snackbarIconSoftWarning(
     {required String message,
     int duration = 4,
@@ -666,6 +685,7 @@ snackbarIconSoftWarning(
   );
   ScaffoldMessenger.of(globalContext).showSnackBar(snackBar);
 }
+
 
 snackbarIconPrimary(
     {required String message,

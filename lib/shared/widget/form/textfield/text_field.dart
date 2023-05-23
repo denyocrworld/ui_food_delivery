@@ -1,5 +1,5 @@
+
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/core.dart';
 
 class QTextField extends StatefulWidget {
   final String? id;
@@ -35,27 +35,23 @@ class QTextField extends StatefulWidget {
   State<QTextField> createState() => _QTextFieldState();
 }
 
-class _QTextFieldState extends State<QTextField> implements InputControlState {
+class _QTextFieldState extends State<QTextField> {
   TextEditingController textEditingController = TextEditingController();
 
   @override
   void initState() {
     textEditingController.text = widget.value ?? "";
-    Input.inputController[widget.id ?? const Uuid().v4()] = this;
     super.initState();
   }
 
-  @override
   getValue() {
     return textEditingController.text;
   }
 
-  @override
   setValue(value) {
     textEditingController.text = value;
   }
 
-  @override
   resetValue() {
     textEditingController.text = "";
   }
@@ -100,3 +96,4 @@ class _QTextFieldState extends State<QTextField> implements InputControlState {
     );
   }
 }
+

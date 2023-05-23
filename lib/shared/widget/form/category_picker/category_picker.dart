@@ -5,6 +5,7 @@ class QCategoryPicker extends StatefulWidget {
   final String? label;
   final bool? wrapMode;
   final dynamic value;
+  final String? Function(dynamic)? validator;
 
   final Function(
     Map<String, dynamic> item,
@@ -24,6 +25,7 @@ class QCategoryPicker extends StatefulWidget {
     required this.onChanged,
     this.itemBuilder,
     this.value,
+    this.validator,
     this.label,
     this.wrapMode = false,
   }) : super(key: key);
