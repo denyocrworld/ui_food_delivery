@@ -1,0 +1,10 @@
+{
+  "button_simple": {
+    "prefix": "button_simple",
+    "body": "ElevatedButton(\r\n  style: ElevatedButton.styleFrom(\r\n    backgroundColor: Colors.blueGrey,\r\n  ),\r\n  onPressed: () {},\r\n  child: const Text(\"Save\"),\r\n),\r"
+  },
+  "xaxa": {
+    "prefix": "xaxa",
+    "body": "demo\r"
+  }
+}

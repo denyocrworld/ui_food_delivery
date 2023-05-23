@@ -57,4 +57,6 @@ export 'package:hyper_ui/shared/widget/form/time_picker/timepicker.dart';
 export 'package:hyper_ui/shared/widget/list/list_view.dart';
 export 'package:hyper_ui/shared_app/widget/snippet_container/snippet_container.dart';
 export 'package:hyper_ui/shared_app/widget/snippet_container/snippet_header.dart';
+export 'package:hyper_ui/snippet/demo.dart';
+export 'package:hyper_ui/snippet/test.dart';
 export 'package:hyper_ui/state_util.dart';
