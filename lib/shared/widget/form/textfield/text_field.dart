@@ -56,7 +56,6 @@ class _QTextFieldState extends State<QTextField> {
     textEditingController.text = "";
   }
 
-  @override
   focus() {
     focusNode.requestFocus();
   }
