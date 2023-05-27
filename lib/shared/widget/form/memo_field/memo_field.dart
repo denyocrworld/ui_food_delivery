@@ -17,7 +17,6 @@ class QMemoField extends StatefulWidget {
     required this.onChanged,
   }) : super(key: key);
 
-  @override
   State<QMemoField> createState() => _QMemoFieldState();
 }
 
@@ -25,7 +24,6 @@ class _QMemoFieldState extends State<QMemoField> {
   FocusNode focusNode = FocusNode();
   GlobalKey key = GlobalKey();
 
-  @override
   void initState() {
     focusNode.addListener(() {
       print("focusNodeListener");
@@ -45,7 +43,6 @@ class _QMemoFieldState extends State<QMemoField> {
 
   @override
   Widget build(BuildContext context) {
-    print("rebuild");
     if (focusNode.hasFocus) {
       Future.delayed(const Duration(milliseconds: 300), () {
         WidgetsBinding.instance
@@ -65,14 +62,6 @@ class _QMemoFieldState extends State<QMemoField> {
       maxLines: 6,
       decoration: InputDecoration(
         labelText: widget.label,
-        labelStyle: const TextStyle(
-          color: Colors.blueGrey,
-        ),
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.blueGrey,
-          ),
-        ),
         suffixIcon: const Icon(
           Icons.text_format,
         ),

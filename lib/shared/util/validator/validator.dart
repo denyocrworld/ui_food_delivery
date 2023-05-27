@@ -16,9 +16,18 @@ class Validator {
     dynamic value, {
     String? fieldName,
   }) {
+    print(value is List);
     print("vvvv: $value");
     if (value is String || value == null) {
       if (value.toString() == "null") return "This field is required";
+      if (value.isEmpty) return "This field is required";
+    }
+
+    if (value is int) {
+      if (value == -1) return "This field is required";
+    }
+
+    if (value is List) {
       if (value.isEmpty) return "This field is required";
     }
     return null;

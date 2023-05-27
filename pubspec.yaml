@@ -32,12 +32,10 @@ dependencies:
   dotted_border: ^2.0.0+3
   faker_dart: ^0.1.11
   syncfusion_flutter_charts: ^21.2.4
-  bitsdojo_window: ^0.1.5
   qr_flutter: ^4.0.0
   path_provider: ^2.0.11
   flutter_animate: ^4.1.1+1
   dio: ^5.0.1
-  http:
 dev_dependencies:
   flutter_test:
     sdk: flutter

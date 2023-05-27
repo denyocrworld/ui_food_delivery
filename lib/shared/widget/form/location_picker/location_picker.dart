@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-import 'package:hyper_ui/core.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import 'location_picker_map_view.dart';
+import 'map_viewer.dart';
 
 class QLocationPicker extends StatefulWidget {
   final String id;
@@ -31,8 +33,7 @@ class QLocationPicker extends StatefulWidget {
   _QLocationPickerState createState() => _QLocationPickerState();
 }
 
-class _QLocationPickerState extends State<QLocationPicker>
-    implements InputControlState {
+class _QLocationPickerState extends State<QLocationPicker> {
   double? latitude;
   double? longitude;
   bool loading = true;
@@ -41,13 +42,8 @@ class _QLocationPickerState extends State<QLocationPicker>
   void initState() {
     super.initState();
     if (widget.latitude == null || widget.longitude == null) {
-      Input.set("${widget.id}_latitude", null);
-      Input.set("${widget.id}_longitude", null);
       getLocation();
     } else {
-      Input.set("${widget.id}_latitude", widget.latitude);
-      Input.set("${widget.id}_longitude", widget.longitude);
-
       latitude = widget.latitude;
       longitude = widget.longitude;
       loading = false;
@@ -56,6 +52,7 @@ class _QLocationPickerState extends State<QLocationPicker>
 
   getLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+
     if (!serviceEnabled) {
       return Future.error('Location services are disabled.');
     }
@@ -78,6 +75,8 @@ class _QLocationPickerState extends State<QLocationPicker>
     longitude = position.longitude;
     loading = false;
     setState(() {});
+
+    widget.onChanged(latitude!, longitude!);
   }
 
   bool isLocationPicked() {
@@ -101,6 +100,7 @@ class _QLocationPickerState extends State<QLocationPicker>
 
   @override
   Widget build(BuildContext context) {
+    if (loading) return Text("Get location...");
     return FormField(
       initialValue: false,
       validator: (value) {
@@ -222,11 +222,18 @@ class _QLocationPickerState extends State<QLocationPicker>
                             scale: 0.6,
                             alignment: Alignment.topLeft,
                             child: ElevatedButton.icon(
-                              icon: const Icon(Icons.location_on),
-                              label:
-                                  Text(widget.enableEdit ? "Change" : "View"),
+                              icon: const Icon(
+                                Icons.location_on,
+                                color: Colors.white,
+                              ),
+                              label: Text(
+                                widget.enableEdit ? "Change" : "View",
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blueGrey,
+                                backgroundColor: Colors.black,
                               ),
                               onPressed: () async {
                                 await Navigator.push(
@@ -248,16 +255,6 @@ class _QLocationPickerState extends State<QLocationPicker>
 
                                 await Future.delayed(
                                     const Duration(milliseconds: 200));
-
-                                var pLatitude =
-                                    Input.get("${widget.id}_latitude");
-                                var pLongitude =
-                                    Input.get("${widget.id}_longitude");
-
-                                if (pLatitude != null) {
-                                  latitude = pLatitude;
-                                  longitude = pLongitude;
-                                }
 
                                 loading = false;
                                 setState(() {});

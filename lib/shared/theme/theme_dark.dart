@@ -41,5 +41,20 @@ ThemeData getDarkTheme() {
         color: Colors.white,
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: UnderlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: UnderlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide(color: Colors.grey[300]!),
+      ),
+      focusedBorder: UnderlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide(color: Colors.blue),
+      ),
+      contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+    ),
   );
 }

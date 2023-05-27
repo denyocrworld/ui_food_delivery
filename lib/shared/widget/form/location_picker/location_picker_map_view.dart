@@ -1,12 +1,14 @@
 import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:hyper_ui/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
-
 import 'package:latlong2/latlong.dart';
+
+import 'map_viewer.dart';
 
 class ExLocationPickerMapView extends StatefulWidget {
   final String id;
@@ -152,11 +154,11 @@ class LocationPickerMapState extends State<LocationPickerMap> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width / 2,
                 height: 50.0,
-                child: Card(
+                child: const Card(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const <Widget>[
+                    children: <Widget>[
                       SizedBox(
                         child: Text("Updating Location..."),
                       ),
@@ -283,7 +285,7 @@ class LocationPickerMapState extends State<LocationPickerMap> {
                               alignment: Alignment.bottomCenter,
                               child: Container(
                                 color: Colors.transparent,
-                                height: 48,
+                                height: 58,
                                 constraints:
                                     const BoxConstraints(maxWidth: 360.0),
                                 margin: const EdgeInsets.only(
@@ -292,19 +294,22 @@ class LocationPickerMapState extends State<LocationPickerMap> {
                                 padding: const EdgeInsets.all(6.0),
                                 width: MediaQuery.of(context).size.width,
                                 child: ElevatedButton.icon(
-                                  icon: const Icon(Icons.location_on),
-                                  label: const Text("Select location"),
+                                  icon: const Icon(
+                                    Icons.location_on,
+                                    color: Colors.white,
+                                  ),
+                                  label: const Text(
+                                    "Select location",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.blueGrey,
+                                    backgroundColor: Colors.black,
                                   ),
                                   onPressed: () async {
                                     debugPrint("currentLatitude : ");
                                     debugPrint("currentLongitude : ");
-                                    Input.set(widget.id, ",");
-                                    Input.set("${widget.id}_latitude",
-                                        currentLatitude);
-                                    Input.set("${widget.id}_longitude",
-                                        currentLongitude);
 
                                     Navigator.pop(context);
 
@@ -314,6 +319,55 @@ class LocationPickerMapState extends State<LocationPickerMap> {
                                 ),
                               ),
                             ),
+                          Positioned(
+                            top: 50.0,
+                            right: 10,
+                            child: InkWell(
+                              onTap: () async {
+                                bool serviceEnabled =
+                                    await Geolocator.isLocationServiceEnabled();
+                                if (!serviceEnabled) {
+                                  return Future.error(
+                                      'Location services are disabled.');
+                                }
+
+                                LocationPermission permission =
+                                    await Geolocator.checkPermission();
+                                if (permission == LocationPermission.denied) {
+                                  permission =
+                                      await Geolocator.requestPermission();
+                                  if (permission == LocationPermission.denied) {
+                                    return Future.error(
+                                        'Location permissions are denied');
+                                  }
+                                }
+
+                                if (permission ==
+                                    LocationPermission.deniedForever) {
+                                  return Future.error(
+                                      'Location permissions are permanently denied, we cannot request permissions.');
+                                }
+
+                                Position position =
+                                    await Geolocator.getCurrentPosition();
+                                mapController.move(
+                                  LatLng(
+                                    position.latitude,
+                                    position.longitude,
+                                  ),
+                                  widget.zoom,
+                                );
+                              },
+                              child: const CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Icon(
+                                  Icons.gps_fixed,
+                                  size: 32.0,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

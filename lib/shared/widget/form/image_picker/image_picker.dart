@@ -152,8 +152,8 @@ class _QImagePickerState extends State<QImagePicker> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            height: 72.0,
-            width: 72.0,
+            height: 96.0,
+            width: 96.0,
             margin: const EdgeInsets.only(
               top: 8.0,
             ),
@@ -206,7 +206,7 @@ class _QImagePickerState extends State<QImagePicker> {
             ),
           ),
           const SizedBox(
-            width: 12.0,
+            width: 20.0,
           ),
           Expanded(
             child: FormField(

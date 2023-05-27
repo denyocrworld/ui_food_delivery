@@ -73,14 +73,6 @@ class _QTextFieldState extends State<QTextField> {
       obscureText: widget.obscure,
       decoration: InputDecoration(
         labelText: widget.label,
-        labelStyle: const TextStyle(
-          color: Colors.blueGrey,
-        ),
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.blueGrey,
-          ),
-        ),
         suffixIcon: Icon(
           widget.suffixIcon ?? Icons.text_format,
         ),
