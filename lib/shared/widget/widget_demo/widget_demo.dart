@@ -45,6 +45,21 @@ class _HUIWidgetDemoViewState extends State<HUIWidgetDemoView> {
                   value: null,
                   onChanged: (value) {},
                 ),
+                QDropdownField(
+                  label: "Roles",
+                  validator: Validator.required,
+                  items: [
+                    {
+                      "label": "Admin",
+                      "value": 1,
+                    },
+                    {
+                      "label": "Staff",
+                      "value": 2,
+                    }
+                  ],
+                  onChanged: (value, label) {},
+                ),
                 QLocationPicker(
                   id: "location",
                   label: "Location",
