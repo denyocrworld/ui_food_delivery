@@ -1,5 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_typing_uninitialized_variables
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
@@ -12,6 +14,7 @@ class HUIWidgetDemoView extends StatefulWidget {
 
 class _HUIWidgetDemoViewState extends State<HUIWidgetDemoView> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  int? counter = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +42,40 @@ class _HUIWidgetDemoViewState extends State<HUIWidgetDemoView> {
             key: formKey,
             child: Column(
               children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueGrey,
+                  ),
+                  onPressed: () {
+                    counter = Random().nextInt(1000);
+                    setState(() {});
+                  },
+                  child: const Text("Randomize"),
+                ),
+                const SizedBox(
+                  height: 12.0,
+                ),
+                Text(
+                  "$counter",
+                  style: TextStyle(
+                    fontSize: 12.0,
+                  ),
+                ),
+                QNumberField(
+                  key: GlobalKey(),
+                  label: "Age",
+                  validator: Validator.required,
+                  value: counter?.toString(),
+                  onChanged: (value) {},
+                ),
+                QTextField(
+                  key: GlobalKey(),
+                  label: "Name",
+                  hint: "Name",
+                  validator: Validator.required,
+                  value: counter?.toString(),
+                  onChanged: (value) {},
+                ),
                 QImagePicker(
                   label: "Photo",
                   validator: Validator.required,

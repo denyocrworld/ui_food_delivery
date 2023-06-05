@@ -37,10 +37,9 @@ class _QNumberFieldState extends State<QNumberField> {
   @override
   void initState() {
     super.initState();
-
     value = widget.value?.replaceAll(RegExp(r'^[0-9,]+$'), '');
     controller = TextEditingController(
-      text: formattedValue,
+      text: widget.value,
     );
   }
 
