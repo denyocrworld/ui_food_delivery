@@ -15,10 +15,12 @@ class QActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const padding = 20.0;
+    final height = MediaQuery.of(context).size.height * 0.07;
     return Container(
       padding: const EdgeInsets.all(padding),
+      color: Colors.white,
       width: MediaQuery.of(context).size.width,
-      height: 48 + (padding * 2),
+      height: height + (padding * 2),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,

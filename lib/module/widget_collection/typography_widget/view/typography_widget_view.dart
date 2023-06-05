@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/shared/widget/typography/heading.dart';
-import '../controller/typography_widget_controller.dart';
 
 class TypographyWidgetView extends StatefulWidget {
   TypographyWidgetView({Key? key}) : super(key: key);
@@ -19,6 +17,7 @@ class TypographyWidgetView extends StatefulWidget {
           padding: EdgeInsets.all(10.0),
           child: Column(
             children: [
+              Divider(),
               //#TEMPLATE h1
               H1(title: "Heading1"),
               //#END

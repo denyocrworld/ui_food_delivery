@@ -7,6 +7,7 @@
         "widget_collection/form_widget",
         "widget_collection/button_widget",
         "widget_collection/typography_widget",
-        "widget_collection/color_widget"
-    ]
+        "widget_collection/color_widget",
+        "widget_collection/module_list",
+        "widget_collection/testss"    ]
 }

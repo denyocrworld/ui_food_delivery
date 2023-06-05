@@ -27,6 +27,14 @@
     "prefix": "q_action_button",
     "body": "QActionButton(\nlabel: \"Checkout\",\nonPressed: () {},\n),"
   },
+  "product_card": {
+    "prefix": "product_card",
+    "body": "Productcard(\nimageUrl:\n\"https://images.unsplash.com/photo-1588168333986-5078d3ae3976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80\",\nname: \"The Halal Guys\",\ncategory: \"Chinese\",\n),"
+  },
+  "grid_product": {
+    "prefix": "grid_product",
+    "body": "GridView.builder(\npadding: EdgeInsets.zero,\ngridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(\nchildAspectRatio: 1.0,\ncrossAxisCount: 2,\nmainAxisSpacing: 10,\ncrossAxisSpacing: 10,\n),\nitemCount: 4,\nshrinkWrap: true,\nphysics: const ScrollPhysics(),\nitemBuilder: (BuildContext context, int index) {\nreturn Productcard(\nimageUrl:\n\"https://images.unsplash.com/photo-1588168333986-5078d3ae3976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80\",\nname: \"The Halal Guys\",\ncategory: \"Chinese\",\n);\n},\n),"
+  },
   "h1": {
     "prefix": "h1",
     "body": "H1(title: \"Heading1\"),"
