@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
@@ -10,17 +9,19 @@ class QImagePicker extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
+  final String? helperText;
   final String? Function(String?)? validator;
   final bool obscure;
   final Function(String) onChanged;
   final String? provider;
 
-  const QImagePicker({
+  QImagePicker({
     Key? key,
     required this.label,
     this.value,
     this.validator,
     this.hint,
+    this.helperText,
     required this.onChanged,
     this.obscure = false,
     this.provider = "cloudinary",
@@ -145,8 +146,11 @@ class _QImagePickerState extends State<QImagePicker> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 4.0),
+      margin: EdgeInsets.only(
+        bottom: 12.0,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -154,7 +158,7 @@ class _QImagePickerState extends State<QImagePicker> {
           Container(
             height: 96.0,
             width: 96.0,
-            margin: const EdgeInsets.only(
+            margin: EdgeInsets.only(
               top: 8.0,
             ),
             decoration: BoxDecoration(
@@ -169,7 +173,7 @@ class _QImagePickerState extends State<QImagePicker> {
                       ),
                       fit: BoxFit.cover,
                     ),
-              borderRadius: const BorderRadius.all(
+              borderRadius: BorderRadius.all(
                 Radius.circular(
                   16.0,
                 ),
@@ -183,7 +187,7 @@ class _QImagePickerState extends State<QImagePicker> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     SizedBox(
                       width: 20.0,
                       height: 20.0,
@@ -205,7 +209,7 @@ class _QImagePickerState extends State<QImagePicker> {
               ),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             width: 20.0,
           ),
           Expanded(
@@ -218,31 +222,21 @@ class _QImagePickerState extends State<QImagePicker> {
                 builder: (FormFieldState<bool> field) {
                   return TextFormField(
                     controller: controller,
-                    
-
                     obscureText: widget.obscure,
                     readOnly: true,
                     decoration: InputDecoration(
                       labelText: widget.label,
-                      labelStyle: const TextStyle(
+                      labelStyle: TextStyle(
                         color: Colors.blueGrey,
-                      ),
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.blueGrey,
-                        ),
                       ),
                       suffixIcon: Transform.scale(
                         scale: 0.8,
                         child: SizedBox(
                           width: 80.0,
                           child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  loading ? Colors.grey[300] : Colors.blueGrey,
-                            ),
+                            style: Theme.of(context).elevatedButtonTheme.style,
                             onPressed: () => browsePhoto(),
-                            child: const Text(
+                            child: Text(
                               "Browse",
                               style: TextStyle(
                                 fontSize: 10.0,
@@ -251,7 +245,8 @@ class _QImagePickerState extends State<QImagePicker> {
                           ),
                         ),
                       ),
-                      helperText: widget.hint,
+                      helperText: widget.helperText,
+                      hintText: widget.hint,
                       errorText: field.errorText,
                     ),
                     onChanged: (value) {
@@ -265,4 +260,3 @@ class _QImagePickerState extends State<QImagePicker> {
     );
   }
 }
-

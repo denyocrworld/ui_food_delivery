@@ -11,6 +11,7 @@ class QLocationPicker extends StatefulWidget {
   final String id;
   final String? label;
   final String? hint;
+  final String? helperText;
   final double? latitude;
   final double? longitude;
   final String? Function(double? latitude, double? longitude)? validator;
@@ -22,6 +23,7 @@ class QLocationPicker extends StatefulWidget {
     required this.id,
     this.label,
     this.hint,
+    this.helperText,
     this.latitude,
     this.longitude,
     this.validator,
@@ -87,156 +89,113 @@ class _QLocationPickerState extends State<QLocationPicker> {
   }
 
   @override
-  setValue(value) {}
-
-  @override
-  getValue() {}
-
-  @override
-  resetValue() {}
-
-  @override
-  focus() {}
-
-  @override
   Widget build(BuildContext context) {
     if (loading) return Text("Get location...");
-    return FormField(
-      initialValue: false,
-      validator: (value) {
-        if (widget.validator != null) {
-          return widget.validator!(latitude, longitude);
-        }
-        return null;
-      },
-      
-      enabled: true,
-      builder: (FormFieldState<bool> field) {
-        return InputDecorator(
-          decoration: InputDecoration(
-            labelText: widget.label,
-            errorText: field.errorText,
-            border: InputBorder.none,
-            helperText: widget.hint,
-          ),
-          child: Container(
-            margin: const EdgeInsets.only(
-              top: 8.0,
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
+      ),
+      child: FormField(
+        initialValue: false,
+        validator: (value) {
+          if (widget.validator != null) {
+            return widget.validator!(latitude, longitude);
+          }
+          return null;
+        },
+        enabled: true,
+        builder: (FormFieldState<bool> field) {
+          return InputDecorator(
+            decoration: InputDecoration(
+              labelText: widget.label,
+              errorText: field.errorText,
+              border: InputBorder.none,
+              helperText: widget.helperText,
+              hintText: widget.hint,
             ),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 120.0,
-                  height: 120.0,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(12.0),
+            child: Container(
+              margin: const EdgeInsets.only(
+                top: 8.0,
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 120.0,
+                    height: 120.0,
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(12.0),
+                      ),
+                      child: loading
+                          ? const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.orange,
+                              ),
+                            )
+                          : MapViewer(
+                              latitude: latitude,
+                              longitude: longitude,
+                            ),
                     ),
-                    child: loading
-                        ? const Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.orange,
-                            ),
-                          )
-                        : MapViewer(
-                            latitude: latitude,
-                            longitude: longitude,
-                          ),
                   ),
-                ),
-                const SizedBox(
-                  width: 10.0,
-                ),
-                Expanded(
-                  child: SizedBox(
-                    height: 128,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "Latitude:",
-                          style: TextStyle(
-                            fontSize: 12.0,
-                          ),
-                        ),
-                        Text(
-                          "$latitude",
-                          style: const TextStyle(
-                            fontSize: 12.0,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 4.0,
-                        ),
-                        const Text(
-                          "Longitude:",
-                          style: TextStyle(
-                            fontSize: 12.0,
-                          ),
-                        ),
-                        Text(
-                          "$longitude",
-                          style: const TextStyle(
-                            fontSize: 12.0,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        if (!isLocationPicked())
-                          ElevatedButton.icon(
-                            icon: const Icon(Icons.location_on),
-                            label: const Text("Select"),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey,
+                  const SizedBox(
+                    width: 10.0,
+                  ),
+                  Expanded(
+                    child: SizedBox(
+                      height: 128,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Latitude:",
+                            style: TextStyle(
+                              fontSize: 12.0,
                             ),
-                            onPressed: () async {
-                              if (!kIsWeb &&
-                                  (Platform.isAndroid || Platform.isIOS)) {
-                                if (!await Permission.location
-                                    .request()
-                                    .isGranted) {
-                                  return;
-                                }
-                                return;
-                              }
-
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ExLocationPickerMapView(
-                                    id: widget.id,
-                                    latitude: latitude,
-                                    longitude: longitude,
-                                    enableEdit: widget.enableEdit,
-                                    onChanged: widget.onChanged,
-                                  ),
-                                ),
-                              );
-
-                              setState(() {});
-                            },
                           ),
-                        if (isLocationPicked())
-                          Transform.scale(
-                            scale: 0.6,
-                            alignment: Alignment.topLeft,
-                            child: ElevatedButton.icon(
-                              icon: const Icon(
-                                Icons.location_on,
-                                color: Colors.white,
-                              ),
-                              label: Text(
-                                widget.enableEdit ? "Change" : "View",
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
+                          Text(
+                            "$latitude",
+                            style: const TextStyle(
+                              fontSize: 12.0,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 4.0,
+                          ),
+                          const Text(
+                            "Longitude:",
+                            style: TextStyle(
+                              fontSize: 12.0,
+                            ),
+                          ),
+                          Text(
+                            "$longitude",
+                            style: const TextStyle(
+                              fontSize: 12.0,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 16.0,
+                          ),
+                          if (!isLocationPicked())
+                            ElevatedButton.icon(
+                              icon: const Icon(Icons.location_on),
+                              label: const Text("Select"),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
+                                backgroundColor: Colors.blueGrey,
                               ),
                               onPressed: () async {
-                                await Navigator.push(
+                                if (!kIsWeb &&
+                                    (Platform.isAndroid || Platform.isIOS)) {
+                                  if (!await Permission.location
+                                      .request()
+                                      .isGranted) {
+                                    return;
+                                  }
+                                  return;
+                                }
+
+                                Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
@@ -250,27 +209,64 @@ class _QLocationPickerState extends State<QLocationPicker> {
                                   ),
                                 );
 
-                                loading = true;
-                                setState(() {});
-
-                                await Future.delayed(
-                                    const Duration(milliseconds: 200));
-
-                                loading = false;
                                 setState(() {});
                               },
                             ),
-                          ),
-                        const Spacer(),
-                      ],
+                          if (isLocationPicked())
+                            Transform.scale(
+                              scale: 0.6,
+                              alignment: Alignment.topLeft,
+                              child: ElevatedButton.icon(
+                                icon: const Icon(
+                                  Icons.location_on,
+                                  color: Colors.white,
+                                ),
+                                label: Text(
+                                  widget.enableEdit ? "Change" : "View",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black,
+                                ),
+                                onPressed: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          ExLocationPickerMapView(
+                                        id: widget.id,
+                                        latitude: latitude,
+                                        longitude: longitude,
+                                        enableEdit: widget.enableEdit,
+                                        onChanged: widget.onChanged,
+                                      ),
+                                    ),
+                                  );
+
+                                  loading = true;
+                                  setState(() {});
+
+                                  await Future.delayed(
+                                      const Duration(milliseconds: 200));
+
+                                  loading = false;
+                                  setState(() {});
+                                },
+                              ),
+                            ),
+                          const Spacer(),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

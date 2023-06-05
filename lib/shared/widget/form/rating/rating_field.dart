@@ -1,19 +1,24 @@
-
 import 'package:flutter/material.dart';
-
-import '../../../../core.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class QRatingField extends StatefulWidget {
   final String label;
   final double? value;
-  final String? Function(String?)? validator;
+  final bool enabled;
+  final String? Function(double?)? validator;
   final Function(double value)? onChanged;
+  final String? hint;
+  final String? helperText;
+
   const QRatingField({
     Key? key,
     required this.label,
     this.value,
     this.onChanged,
     this.validator,
+    this.enabled = false,
+    this.hint,
+    this.helperText,
   }) : super(key: key);
 
   @override
@@ -21,47 +26,80 @@ class QRatingField extends StatefulWidget {
 }
 
 class _QRatingFieldState extends State<QRatingField> {
+  double? currentValue;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
+      ),
+      child: Stack(
         children: [
-          Text(
-            widget.label,
-            style: const TextStyle(
-              fontSize: 13.0,
-              color: Colors.grey,
-            ),
-          ),
-          const SizedBox(
-            height: 6.0,
-          ),
-          RatingBar.builder(
-            initialRating: widget.value ?? 0,
-            minRating: 1,
-            direction: Axis.horizontal,
-            allowHalfRating: true,
-            itemCount: 5,
-            itemBuilder: (context, _) => const Icon(
-              Icons.star,
-              color: Colors.amber,
-            ),
-            itemSize: 20.0,
-            onRatingUpdate: (rating) {
-              print(rating);
-              if (widget.onChanged != null) {
-                widget.onChanged!(rating);
+          TextFormField(
+            initialValue: " ",
+            enabled: widget.enabled,
+            validator: (value) {
+              if (widget.validator != null) {
+                widget.validator!(currentValue);
               }
+              return null;
             },
+            decoration: InputDecoration(
+              labelText: widget.label,
+              helperText: widget.helperText,
+              hintText: widget.hint,
+            ),
+            // onChanged: (value) {
+
+            //   widget.onChanged!(value);
+            // },
+            // onFieldSubmitted: (value) {
+            //   if (widget.onSubmitted != null) widget.onSubmitted!(value);
+            // },
           ),
-          const SizedBox(
-            height: 8.0,
+          Positioned(
+            left: Theme.of(context)
+                    .inputDecorationTheme
+                    .contentPadding
+                    ?.horizontal ??
+                12.0,
+            top: 0,
+            right: 0,
+            bottom: 0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RatingBar.builder(
+                  initialRating: widget.value ?? 0,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  itemSize: 20.0,
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                    if (widget.onChanged != null) {
+                      widget.onChanged!(rating);
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 }
-

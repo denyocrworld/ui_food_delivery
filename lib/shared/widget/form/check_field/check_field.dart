@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class QCheckField extends StatefulWidget {
@@ -9,6 +8,7 @@ class QCheckField extends StatefulWidget {
   final List? value;
   final Future<List<Map<String, dynamic>>> Function()? onFuture;
   final Function(List<Map<String, dynamic>> values, List ids) onChanged;
+  final String? helperText;
 
   const QCheckField({
     Key? key,
@@ -18,6 +18,7 @@ class QCheckField extends StatefulWidget {
     this.value,
     this.onFuture,
     this.hint,
+    this.helperText,
     required this.onChanged,
   }) : super(key: key);
 
@@ -60,50 +61,53 @@ class _QCheckFieldState extends State<QCheckField> {
 
   @override
   Widget build(BuildContext context) {
-    return FormField(
-      initialValue: false,
-      
-      
-      validator: (value) => widget.validator!(items),
-      enabled: true,
-      builder: (FormFieldState<bool> field) {
-        return InputDecorator(
-          decoration: InputDecoration(
-            labelText: widget.label,
-            errorText: field.errorText,
-            border: InputBorder.none,
-            helperText: widget.hint,
-          ),
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              var item = items[index];
-              return CheckboxListTile(
-                title: Text("${item["label"]}"),
-                value: item["checked"] ?? false,
-                onChanged: (val) {
-                  items[index]["checked"] = val;
-                  field.didChange(true);
-                  setState(() {});
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
+      ),
+      child: FormField(
+        initialValue: false,
+        validator: (value) => widget.validator!(items),
+        enabled: true,
+        builder: (FormFieldState<bool> field) {
+          return InputDecorator(
+            decoration: InputDecoration(
+              labelText: widget.label,
+              errorText: field.errorText,
+              border: InputBorder.none,
+              helperText: widget.helperText,
+              hintText: widget.hint,
+            ),
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                var item = items[index];
+                return CheckboxListTile(
+                  title: Text("${item["label"]}"),
+                  value: item["checked"] ?? false,
+                  onChanged: (val) {
+                    items[index]["checked"] = val;
+                    field.didChange(true);
+                    setState(() {});
 
-                  String? label = items[index]["label"];
-                  int foundIndex =
-                      items.indexWhere((item) => item["label"] == label);
-                  dynamic value = items[foundIndex]["value"];
+                    String? label = items[index]["label"];
+                    int foundIndex =
+                        items.indexWhere((item) => item["label"] == label);
+                    dynamic value = items[foundIndex]["value"];
 
-                  List<Map<String, dynamic>> selectedValues =
-                      items.where((i) => i["checked"] == true).toList();
+                    List<Map<String, dynamic>> selectedValues =
+                        items.where((i) => i["checked"] == true).toList();
 
-                  List ids = selectedValues.map((e) => e["value"]).toList();
-                  widget.onChanged(selectedValues, ids);
-                },
-              );
-            },
-          ),
-        );
-      },
+                    List ids = selectedValues.map((e) => e["value"]).toList();
+                    widget.onChanged(selectedValues, ids);
+                  },
+                );
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
-

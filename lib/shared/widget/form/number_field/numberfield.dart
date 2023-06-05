@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -6,6 +5,7 @@ class QNumberField extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
+  final String? helperText;
   final String? Function(String?)? validator;
   final Function(String) onChanged;
   final Function(String)? onSubmitted;
@@ -19,6 +19,7 @@ class QNumberField extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
+    this.helperText,
     required this.onChanged,
     this.onSubmitted,
     this.pattern,
@@ -37,7 +38,6 @@ class _QNumberFieldState extends State<QNumberField> {
   void initState() {
     super.initState();
 
-    RegExp r = RegExp(r'^[0-9]+(\.[0-9]+)?$');
     value = widget.value?.replaceAll(RegExp(r'^[0-9,]+$'), '');
     controller = TextEditingController(
       text: formattedValue,
@@ -55,47 +55,51 @@ class _QNumberFieldState extends State<QNumberField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      validator: widget.validator,
-      maxLength: 20,
-      keyboardType: TextInputType.number,
-      decoration: InputDecoration(
-        labelText: widget.label,
-        suffixIcon: const Icon(
-          Icons.numbers,
-        ),
-        helperText: widget.hint,
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
       ),
-      onChanged: (newValue) {
-        var newValue = controller.text;
-        print("newValue: $newValue");
+      child: TextFormField(
+        controller: controller,
+        validator: widget.validator,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          labelText: widget.label,
+          suffixIcon: const Icon(
+            Icons.numbers,
+          ),
+          helperText: widget.helperText,
+          hintText: widget.hint,
+        ),
+        onChanged: (newValue) {
+          var newValue = controller.text;
+          print("newValue: $newValue");
 
-        value = newValue.replaceAll(RegExp(r'[^0-9.]'), '');
+          value = newValue.replaceAll(RegExp(r'[^0-9.]'), '');
 
-        print("value: $value");
-        controller.text = formattedValue ?? "";
-        controller.selection =
-            TextSelection.collapsed(offset: controller.text.length);
+          print("value: $value");
+          controller.text = formattedValue ?? "";
+          controller.selection =
+              TextSelection.collapsed(offset: controller.text.length);
 
-        widget.onChanged(newValue.replaceAll(RegExp(r'\D'), ''));
-      },
-      onFieldSubmitted: (newValue) {
-        var newValue = controller.text;
-        print("newValue: $newValue");
+          widget.onChanged(newValue.replaceAll(RegExp(r'\D'), ''));
+        },
+        onFieldSubmitted: (newValue) {
+          var newValue = controller.text;
+          print("newValue: $newValue");
 
-        value = newValue.replaceAll(RegExp(r'[^0-9.]'), '');
+          value = newValue.replaceAll(RegExp(r'[^0-9.]'), '');
 
-        print("value: $value");
-        controller.text = formattedValue ?? "";
-        controller.selection =
-            TextSelection.collapsed(offset: controller.text.length);
+          print("value: $value");
+          controller.text = formattedValue ?? "";
+          controller.selection =
+              TextSelection.collapsed(offset: controller.text.length);
 
-        if (widget.onSubmitted != null) {
-          widget.onSubmitted!(newValue.replaceAll(RegExp(r'\D'), ''));
-        }
-      },
+          if (widget.onSubmitted != null) {
+            widget.onSubmitted!(newValue.replaceAll(RegExp(r'\D'), ''));
+          }
+        },
+      ),
     );
   }
 }
-

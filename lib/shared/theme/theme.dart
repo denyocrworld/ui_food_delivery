@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 ThemeData getDefaultTheme() {
   return ThemeData().copyWith(
     primaryColor: primaryColor,
-    scaffoldBackgroundColor: Colors.grey[300],
+    scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
-      backgroundColor: appbarBackgroundColor,
+      backgroundColor: Colors.white,
       elevation: 0.6,
       titleTextStyle: GoogleFonts.lato(
         color: Colors.blueGrey[700],
@@ -44,6 +44,29 @@ ThemeData getDefaultTheme() {
       bodyMedium: GoogleFonts.lato(
         color: Colors.blueGrey[900],
       ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hoverColor: Colors.transparent,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide(
+          color: Colors.grey[300]!,
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide(
+          color: Colors.grey[300]!,
+        ),
+      ),
+      disabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: BorderSide(
+          color: Colors.grey[300]!,
+        ),
+      ),
+      filled: true,
+      fillColor: Color(0xfffbfbfb),
     ),
   );
 }

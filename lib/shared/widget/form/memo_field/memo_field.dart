@@ -1,11 +1,13 @@
-
 import 'package:flutter/material.dart';
 
 class QMemoField extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
+  final String? helperText;
   final String? Function(String?)? validator;
+  final int? maxLength;
+  final int? maxLines;
   final Function(String) onChanged;
 
   const QMemoField({
@@ -14,7 +16,10 @@ class QMemoField extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
+    this.helperText,
     required this.onChanged,
+    this.maxLength,
+    this.maxLines,
   }) : super(key: key);
 
   State<QMemoField> createState() => _QMemoFieldState();
@@ -53,22 +58,27 @@ class _QMemoFieldState extends State<QMemoField> {
                 ));
       });
     }
-    return TextFormField(
-      key: key,
-      initialValue: widget.value,
-      focusNode: focusNode,
-      validator: widget.validator,
-      maxLength: 200,
-      maxLines: 6,
-      decoration: InputDecoration(
-        labelText: widget.label,
-        suffixIcon: const Icon(
-          Icons.text_format,
-        ),
-        helperText: widget.hint,
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
       ),
-      onChanged: widget.onChanged,
+      child: TextFormField(
+        key: key,
+        initialValue: widget.value,
+        focusNode: focusNode,
+        validator: widget.validator,
+        maxLength: widget.maxLength,
+        maxLines: widget.maxLines ?? 6,
+        decoration: InputDecoration(
+          labelText: widget.label,
+          suffixIcon: const Icon(
+            Icons.text_format,
+          ),
+          helperText: widget.helperText,
+          hintText: widget.hint,
+        ),
+        onChanged: widget.onChanged,
+      ),
     );
   }
 }
-

@@ -184,6 +184,9 @@ class LocationPickerMapState extends State<LocationPickerMap> {
                       child: Row(
                         children: [
                           InkWell(
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () {
                               Navigator.pop(context);
                             },
@@ -230,6 +233,9 @@ class LocationPickerMapState extends State<LocationPickerMap> {
                             width: 10.0,
                           ),
                           InkWell(
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () {
                               searchController.text = "";
                             },
@@ -323,6 +329,9 @@ class LocationPickerMapState extends State<LocationPickerMap> {
                             top: 50.0,
                             right: 10,
                             child: InkWell(
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 bool serviceEnabled =
                                     await Geolocator.isLocationServiceEnabled();
@@ -416,6 +425,9 @@ class LocationPickerMapState extends State<LocationPickerMap> {
                               var lng = double.parse(item["lon"].toString());
 
                               return InkWell(
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   updatePosition = true;
                                   currentLatitude = lat;

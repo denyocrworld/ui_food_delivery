@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class QTextField extends StatefulWidget {
@@ -6,6 +5,7 @@ class QTextField extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
+  final String? helperText;
   final String? Function(String?)? validator;
   final bool obscure;
   final bool enabled;
@@ -22,6 +22,7 @@ class QTextField extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
+    this.helperText,
     this.maxLength,
     required this.onChanged,
     this.onSubmitted,
@@ -64,27 +65,32 @@ class _QTextFieldState extends State<QTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      enabled: widget.enabled,
-      controller: textEditingController,
-      focusNode: focusNode,
-      validator: widget.validator,
-      maxLength: widget.maxLength,
-      obscureText: widget.obscure,
-      decoration: InputDecoration(
-        labelText: widget.label,
-        suffixIcon: Icon(
-          widget.suffixIcon ?? Icons.text_format,
-        ),
-        helperText: widget.hint,
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
       ),
-      onChanged: (value) {
-        widget.onChanged(value);
-      },
-      onFieldSubmitted: (value) {
-        if (widget.onSubmitted != null) widget.onSubmitted!(value);
-      },
+      child: TextFormField(
+        enabled: widget.enabled,
+        controller: textEditingController,
+        focusNode: focusNode,
+        validator: widget.validator,
+        maxLength: widget.maxLength,
+        obscureText: widget.obscure,
+        decoration: InputDecoration(
+          labelText: widget.label,
+          suffixIcon: const Icon(
+            Icons.numbers,
+          ),
+          helperText: widget.helperText,
+          hintText: widget.hint,
+        ),
+        onChanged: (value) {
+          widget.onChanged(value);
+        },
+        onFieldSubmitted: (value) {
+          if (widget.onSubmitted != null) widget.onSubmitted!(value);
+        },
+      ),
     );
   }
 }
-

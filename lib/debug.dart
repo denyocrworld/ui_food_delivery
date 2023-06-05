@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core.dart';
 
-
 Widget debugView({
   required BuildContext context,
   required bool visible,
@@ -29,25 +28,6 @@ Widget debugView({
             ),
             child: Column(
               children: [
-                InkWell(
-                  onTap: () {
-                    if (isDarkMode) {
-                      isDarkMode = false;
-                      Get.changeTheme(getDefaultTheme());
-                    } else {
-                      isDarkMode = true;
-                      Get.changeTheme(getDarkTheme());
-                    }
-                  },
-                  child: const Icon(
-                    MdiIcons.windowOpen,
-                    color: Colors.white,
-                    size: 12.0,
-                  ),
-                ),
-                const SizedBox(
-                  height: 12.0,
-                ),
                 InkWell(
                   onTap: () => Get.back(),
                   child: const Icon(

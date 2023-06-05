@@ -1,0 +1,12 @@
+{
+    "openai_key": "",
+    "modules": [
+        "widget_collection/dashboard_widget",
+        "widget_collection/carousel_widget",
+        "widget_collection/card_widget",
+        "widget_collection/form_widget",
+        "widget_collection/button_widget",
+        "widget_collection/typography_widget",
+        "widget_collection/color_widget"
+    ]
+}

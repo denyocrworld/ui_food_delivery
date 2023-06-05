@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class QAutoComplete extends StatefulWidget {
   final String label;
   final String? hint;
+  final String? helperText;
   final dynamic value;
   final List<Map<String, dynamic>> items;
   final String? Function(String? item)? validator;
@@ -17,6 +18,7 @@ class QAutoComplete extends StatefulWidget {
     this.onFuture,
     this.validator,
     this.hint,
+    this.helperText,
     this.value,
     required this.onChanged,
   }) : super(key: key);
@@ -71,22 +73,25 @@ class _QAutoCompleteState extends State<QAutoComplete> {
 
                 textEditingController.text = value;
 
-                return TextFormField(
-                  controller: textEditingController,
-                  focusNode: focusNode,
-                  onFieldSubmitted: (text) => onFieldSubmitted(),
-                  validator: widget.validator,
-                  decoration: InputDecoration(
-                    labelText: widget.label,
-                    errorText: field.errorText,
-                    suffixIcon: const Icon(Icons.search),
-                    helperText: widget.hint,
+                return Container(
+                  margin: const EdgeInsets.only(
+                    bottom: 12.0,
+                  ),
+                  child: TextFormField(
+                    controller: textEditingController,
+                    focusNode: focusNode,
+                    onFieldSubmitted: (text) => onFieldSubmitted(),
+                    validator: widget.validator,
+                    decoration: InputDecoration(
+                      labelText: widget.label,
+                      errorText: field.errorText,
+                      suffixIcon: const Icon(Icons.search),
+                      helperText: widget.helperText,
+                      hintText: widget.hint,
+                    ),
                   ),
                 );
               },
-              
-              
-              
               onSelected: (Map map) {
                 String? label = map["label"];
                 dynamic value = map["value"];
@@ -144,6 +149,9 @@ class _QAutoCompleteState extends State<QAutoComplete> {
                                 Map option = options.elementAt(index);
 
                                 return InkWell(
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () => onSelected(option),
                                   child: Container(
                                     decoration: BoxDecoration(

@@ -1,4 +1,3 @@
-
 import 'package:hyper_ui/core.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +5,7 @@ class QDatePicker extends StatefulWidget {
   final String label;
   final DateTime? value;
   final String? hint;
+  final String? helperText;
   final String? Function(String?)? validator;
   final Function(DateTime) onChanged;
 
@@ -15,6 +15,7 @@ class QDatePicker extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
+    this.helperText,
     required this.onChanged,
   }) : super(key: key);
 
@@ -51,6 +52,9 @@ class _QDatePickerState extends State<QDatePicker> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: () async {
         DateTime? pickedDate = await showDatePicker(
           context: context,
@@ -62,37 +66,37 @@ class _QDatePickerState extends State<QDatePicker> {
         controller.text = getFormattedValue();
         setState(() {});
 
+        if (selectedValue == null) return;
         widget.onChanged(selectedValue!);
       },
       child: AbsorbPointer(
-        child: TextFormField(
-          controller: controller,
-          validator: (value) {
-            if (widget.validator != null) {
-              return widget.validator!(selectedValue.toString());
-            }
-            return null;
-          },
-          maxLength: 20,
-          readOnly: true,
-          decoration: InputDecoration(
-            labelText: widget.label,
-            labelStyle: const TextStyle(
-              color: Colors.blueGrey,
-            ),
-            enabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(
+        child: Container(
+          margin: const EdgeInsets.only(
+            bottom: 12.0,
+          ),
+          child: TextFormField(
+            controller: controller,
+            validator: (value) {
+              if (widget.validator != null) {
+                return widget.validator!(selectedValue.toString());
+              }
+              return null;
+            },
+            readOnly: true,
+            decoration: InputDecoration(
+              labelText: widget.label,
+              labelStyle: const TextStyle(
                 color: Colors.blueGrey,
               ),
+              suffixIcon: const Icon(
+                Icons.date_range,
+              ),
+              helperText: widget.helperText,
+              hintText: widget.hint,
             ),
-            suffixIcon: const Icon(
-              Icons.date_range,
-            ),
-            helperText: widget.hint,
           ),
         ),
       ),
     );
   }
 }
-

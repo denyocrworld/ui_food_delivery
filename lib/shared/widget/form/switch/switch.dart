@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 class QSwitch extends StatefulWidget {
   final String label;
   final String? hint;
+  final String? helperText;
   final List<Map<String, dynamic>> items;
   final String? Function(List<Map<String, dynamic>> item)? validator;
   final List? value;
@@ -16,6 +16,7 @@ class QSwitch extends StatefulWidget {
     this.validator,
     this.value,
     this.hint,
+    this.helperText,
     required this.onChanged,
   }) : super(key: key);
 
@@ -36,51 +37,54 @@ class _QSwitchState extends State<QSwitch> {
 
   @override
   Widget build(BuildContext context) {
-    return FormField(
-      initialValue: false,
-      
-      
-      validator: (value) => widget.validator!(items),
-      enabled: true,
-      builder: (FormFieldState<bool> field) {
-        return InputDecorator(
-          decoration: InputDecoration(
-            labelText: widget.label,
-            errorText: field.errorText,
-            border: InputBorder.none,
-            helperText: widget.hint,
-          ),
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              var item = items[index];
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
+      ),
+      child: FormField(
+        initialValue: false,
+        validator: (value) => widget.validator!(items),
+        enabled: true,
+        builder: (FormFieldState<bool> field) {
+          return InputDecorator(
+            decoration: InputDecoration(
+              labelText: widget.label,
+              errorText: field.errorText,
+              border: InputBorder.none,
+              helperText: widget.helperText,
+              hintText: widget.hint,
+            ),
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                var item = items[index];
 
-              return SwitchListTile(
-                title: Text("${item["label"]}"),
-                value: item["checked"] ?? false,
-                onChanged: (val) {
-                  items[index]["checked"] = val;
-                  field.didChange(true);
-                  setState(() {});
+                return SwitchListTile(
+                  title: Text("${item["label"]}"),
+                  value: item["checked"] ?? false,
+                  onChanged: (val) {
+                    items[index]["checked"] = val;
+                    field.didChange(true);
+                    setState(() {});
 
-                  String? label = items[index]["label"];
-                  int foundIndex =
-                      items.indexWhere((item) => item["label"] == label);
-                  dynamic value = items[foundIndex]["value"];
+                    String? label = items[index]["label"];
+                    int foundIndex =
+                        items.indexWhere((item) => item["label"] == label);
+                    dynamic value = items[foundIndex]["value"];
 
-                  List<Map<String, dynamic>> selectedValues =
-                      items.where((i) => i["checked"] == true).toList();
+                    List<Map<String, dynamic>> selectedValues =
+                        items.where((i) => i["checked"] == true).toList();
 
-                  List ids = selectedValues.map((e) => e["value"]).toList();
-                  widget.onChanged(selectedValues, ids);
-                },
-              );
-            },
-          ),
-        );
-      },
+                    List ids = selectedValues.map((e) => e["value"]).toList();
+                    widget.onChanged(selectedValues, ids);
+                  },
+                );
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
-

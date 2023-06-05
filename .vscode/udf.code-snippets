@@ -1,0 +1,78 @@
+{
+  "q_button": {
+    "prefix": "q_button",
+    "body": "QButton(\nlabel: \"Checkout\",\nonPressed: () {},\n),"
+  },
+  "q_button_outline": {
+    "prefix": "q_button_outline",
+    "body": "QOutlineButton(\nlabel: \"Checkout\",\nonPressed: () {},\n),"
+  },
+  "q_button_outline_success": {
+    "prefix": "q_button_outline_success",
+    "body": "QOutlineSuccessButton(\nlabel: \"Checkout\",\nonPressed: () {},\n),"
+  },
+  "q_button_outline_danger": {
+    "prefix": "q_button_outline_danger",
+    "body": "QOutlineDangerButton(\nlabel: \"Checkout\",\nonPressed: () {},\n),"
+  },
+  "q_button_outline_icon": {
+    "prefix": "q_button_outline_icon",
+    "body": "QOutlineIconButton(\nlabel: \"Checkout\",\nicon: Icons.wallet,\nonPressed: () {},\n),"
+  },
+  "q_action_button_with_options": {
+    "prefix": "q_action_button_with_options",
+    "body": "QActionButtonWithOptions(\nlabel: \"Checkout\",\nicon: Icons.share,\nonPressed: () {},\nonOptionPressed: () {},\n),"
+  },
+  "q_action_button": {
+    "prefix": "q_action_button",
+    "body": "QActionButton(\nlabel: \"Checkout\",\nonPressed: () {},\n),"
+  },
+  "h1": {
+    "prefix": "h1",
+    "body": "H1(title: \"Heading1\"),"
+  },
+  "h2": {
+    "prefix": "h2",
+    "body": "H2(title: \"Heading2\"),"
+  },
+  "h3": {
+    "prefix": "h3",
+    "body": "H3(title: \"Heading3\"),"
+  },
+  "h4": {
+    "prefix": "h4",
+    "body": "H4(title: \"Heading4\"),"
+  },
+  "h5": {
+    "prefix": "h5",
+    "body": "H5(title: \"Heading5\"),"
+  },
+  "h6": {
+    "prefix": "h6",
+    "body": "H6(title: \"Heading6\"),"
+  },
+  "hs1": {
+    "prefix": "hs1",
+    "body": "H1(\ntitle: \"Heading1\",\nsubtitle: \"Subtitle1\",\n),"
+  },
+  "hs2": {
+    "prefix": "hs2",
+    "body": "H2(\ntitle: \"Heading2\",\nsubtitle: \"Subtitle2\",\n),"
+  },
+  "hs3": {
+    "prefix": "hs3",
+    "body": "H3(\ntitle: \"Heading3\",\nsubtitle: \"Subtitle3\",\n),"
+  },
+  "hs4": {
+    "prefix": "hs4",
+    "body": "H4(\ntitle: \"Heading4\",\nsubtitle: \"Subtitle4\",\n),"
+  },
+  "hs5": {
+    "prefix": "hs5",
+    "body": "H5(\ntitle: \"Heading5\",\nsubtitle: \"Subtitle5\",\n),"
+  },
+  "hs6": {
+    "prefix": "hs6",
+    "body": "H6(\ntitle: \"Heading6\",\nsubtitle: \"Subtitle6\",\n),"
+  }
+}

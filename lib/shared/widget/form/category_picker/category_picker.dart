@@ -7,6 +7,7 @@ class QCategoryPicker extends StatefulWidget {
   final dynamic value;
   final String? Function(int value)? validator;
   final String? hint;
+  final String? helperText;
 
   final Function(
     Map<String, dynamic> item,
@@ -30,6 +31,7 @@ class QCategoryPicker extends StatefulWidget {
     this.label,
     this.wrapMode = false,
     this.hint,
+    this.helperText,
   }) : super(key: key);
 
   @override
@@ -80,69 +82,24 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
 
   @override
   Widget build(BuildContext context) {
-    return FormField(
-      initialValue: false,
-      validator: (value) => widget.validator!(selectedIndex),
-      enabled: true,
-      builder: (FormFieldState<bool> field) {
-        if (widget.wrapMode == true) {
-          return SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                getLabel(),
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.start,
-                  children: List.generate(items.length, (index) {
-                    bool selected = selectedIndex == index;
-                    var item = items[index];
-
-                    if (widget.itemBuilder != null) {
-                      return widget.itemBuilder!(item, selected, () {
-                        updateIndex(index);
-                      });
-                    }
-
-                    return InkWell(
-                      onTap: () => updateIndex(index),
-                      child: Card(
-                        color: selected ? Colors.black : null,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(item["label"]),
-                        ),
-                      ),
-                    );
-                  }),
-                ),
-              ],
-            ),
-          );
-        }
-
-        return InputDecorator(
-          decoration: InputDecoration(
-            labelText: widget.label,
-            errorText: field.errorText,
-            border: InputBorder.none,
-            helperText: widget.hint,
-          ),
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 6.0,
-                ),
-                SingleChildScrollView(
-                  controller: ScrollController(),
-                  scrollDirection: Axis.horizontal,
-                  clipBehavior: Clip.none,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
+    return Container(
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
+      ),
+      child: FormField(
+        initialValue: false,
+        validator: (value) => widget.validator!(selectedIndex),
+        enabled: true,
+        builder: (FormFieldState<bool> field) {
+          if (widget.wrapMode == true) {
+            return SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  getLabel(),
+                  Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.start,
                     children: List.generate(items.length, (index) {
                       bool selected = selectedIndex == index;
                       var item = items[index];
@@ -154,6 +111,9 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                       }
 
                       return InkWell(
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () => updateIndex(index),
                         child: Card(
                           color: selected ? Colors.black : null,
@@ -165,12 +125,66 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                       );
                     }),
                   ),
-                ),
-              ],
+                ],
+              ),
+            );
+          }
+
+          return InputDecorator(
+            decoration: InputDecoration(
+              labelText: widget.label,
+              errorText: field.errorText,
+              border: InputBorder.none,
+              helperText: widget.helperText,
+              hintText: widget.hint,
             ),
-          ),
-        );
-      },
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 6.0,
+                  ),
+                  SingleChildScrollView(
+                    controller: ScrollController(),
+                    scrollDirection: Axis.horizontal,
+                    clipBehavior: Clip.none,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: List.generate(items.length, (index) {
+                        bool selected = selectedIndex == index;
+                        var item = items[index];
+
+                        if (widget.itemBuilder != null) {
+                          return widget.itemBuilder!(item, selected, () {
+                            updateIndex(index);
+                          });
+                        }
+
+                        return InkWell(
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () => updateIndex(index),
+                          child: Card(
+                            color: selected ? Colors.black : null,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(item["label"]),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
