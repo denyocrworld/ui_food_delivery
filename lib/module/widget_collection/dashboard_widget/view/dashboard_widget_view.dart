@@ -1,51 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../../../../shared/widget/card/product_card.dart';
-
 class DashboardWidgetView extends StatefulWidget {
   DashboardWidgetView({Key? key}) : super(key: key);
 
   Widget build(context, DashboardWidgetController controller) {
     controller.view = this;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Dashboard"),
-        actions: [],
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              //#TEMPLATE grid_product
-              GridView.builder(
-                padding: EdgeInsets.zero,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1.0,
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                ),
-                itemCount: 4,
-                shrinkWrap: true,
-                physics: const ScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) {
-                  return Productcard(
-                    imageUrl:
-                        "https://images.unsplash.com/photo-1588168333986-5078d3ae3976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80",
-                    name: "The Halal Guys",
-                    category: "Chinese",
-                  );
-                },
-              ),
-              //#END
-            ],
-          ),
-        ),
-      ),
-    );
 
     return Scaffold(
       appBar: AppBar(
@@ -87,7 +47,7 @@ class DashboardWidgetView extends StatefulWidget {
                           Text(
                             item["label"],
                             style: TextStyle(
-                              fontSize: 24.0,
+                              fontSize: 16.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

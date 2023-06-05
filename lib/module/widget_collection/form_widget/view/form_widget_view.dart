@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/shared/widget/form/category_picker/wrap_category_picker.dart';
-import 'package:hyper_ui/shared/widget/widget_demo/widget_demo.dart';
 
 class FormWidgetView extends StatefulWidget {
   const FormWidgetView({Key? key}) : super(key: key);
@@ -51,6 +49,21 @@ class FormWidgetView extends StatefulWidget {
                 ],
                 validator: Validator.required,
                 onChanged: (index, label, value, item) {},
+              ),
+              QDropdownField(
+                label: "Roles",
+                validator: Validator.required,
+                items: [
+                  {
+                    "label": "Admin",
+                    "value": 1,
+                  },
+                  {
+                    "label": "Staff",
+                    "value": 2,
+                  }
+                ],
+                onChanged: (value, label) {},
               ),
               QWrapCategoryPicker(
                 label: "Category",
