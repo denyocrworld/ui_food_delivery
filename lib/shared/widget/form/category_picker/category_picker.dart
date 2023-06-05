@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class QCategoryPicker extends StatefulWidget {
   final List<Map<String, dynamic>> items;
   final String? label;
-  final bool? wrapMode;
   final dynamic value;
   final String? Function(int? value)? validator;
   final String? hint;
@@ -29,7 +28,6 @@ class QCategoryPicker extends StatefulWidget {
     this.value,
     this.validator,
     this.label,
-    this.wrapMode = false,
     this.hint,
     this.helperText,
   }) : super(key: key);
@@ -92,50 +90,16 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
             widget.validator!(selectedIndex == -1 ? null : selectedIndex),
         enabled: true,
         builder: (FormFieldState<bool> field) {
-          if (widget.wrapMode == true) {
-            return SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  getLabel(),
-                  Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.start,
-                    children: List.generate(items.length, (index) {
-                      bool selected = selectedIndex == index;
-                      var item = items[index];
-
-                      if (widget.itemBuilder != null) {
-                        return widget.itemBuilder!(item, selected, () {
-                          updateIndex(index);
-                        });
-                      }
-
-                      return InkWell(
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () => updateIndex(index),
-                        child: Card(
-                          color: selected ? Colors.black : null,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(item["label"]),
-                          ),
-                        ),
-                      );
-                    }),
-                  ),
-                ],
-              ),
-            );
-          }
-
           return InputDecorator(
             decoration: InputDecoration(
               labelText: widget.label,
               errorText: field.errorText,
               border: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              filled: false,
+              fillColor: Colors.transparent,
+              enabledBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
               helperText: widget.helperText,
               hintText: widget.hint,
             ),
@@ -178,25 +142,6 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                                   ),
                             onPressed: () => updateIndex(index),
                             child: Text(item["label"]),
-                          ),
-                        );
-
-                        return InkWell(
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () => updateIndex(index),
-                          child: Card(
-                            color: selected ? Colors.black : null,
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Text(
-                                item["label"],
-                                style: TextStyle(
-                                  color: selected ? Colors.white : Colors.black,
-                                ),
-                              ),
-                            ),
                           ),
                         );
                       }),
