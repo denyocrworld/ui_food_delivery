@@ -9,7 +9,7 @@ class QImagePicker extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final String? Function(String?)? validator;
   final bool obscure;
   final Function(String) onChanged;
@@ -21,7 +21,7 @@ class QImagePicker extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
-    this.helperText,
+    this.helper,
     required this.onChanged,
     this.obscure = false,
     this.provider = "cloudinary",
@@ -245,7 +245,7 @@ class _QImagePickerState extends State<QImagePicker> {
                           ),
                         ),
                       ),
-                      helperText: widget.helperText,
+                      helperText: widget.helper,
                       hintText: widget.hint,
                       errorText: field.errorText,
                     ),

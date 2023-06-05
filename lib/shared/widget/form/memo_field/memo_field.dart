@@ -4,7 +4,7 @@ class QMemoField extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final String? Function(String?)? validator;
   final int? maxLength;
   final int? maxLines;
@@ -16,7 +16,7 @@ class QMemoField extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
-    this.helperText,
+    this.helper,
     required this.onChanged,
     this.maxLength,
     this.maxLines,
@@ -74,7 +74,7 @@ class _QMemoFieldState extends State<QMemoField> {
           suffixIcon: const Icon(
             Icons.text_format,
           ),
-          helperText: widget.helperText,
+          helperText: widget.helper,
           hintText: widget.hint,
         ),
         onChanged: widget.onChanged,

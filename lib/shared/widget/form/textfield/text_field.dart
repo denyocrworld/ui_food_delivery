@@ -5,7 +5,7 @@ class QTextField extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final String? Function(String?)? validator;
   final bool obscure;
   final bool enabled;
@@ -22,7 +22,7 @@ class QTextField extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
-    this.helperText,
+    this.helper,
     this.maxLength,
     required this.onChanged,
     this.onSubmitted,
@@ -81,7 +81,7 @@ class _QTextFieldState extends State<QTextField> {
           suffixIcon: const Icon(
             Icons.numbers,
           ),
-          helperText: widget.helperText,
+          helperText: widget.helper,
           hintText: widget.hint,
         ),
         onChanged: (value) {

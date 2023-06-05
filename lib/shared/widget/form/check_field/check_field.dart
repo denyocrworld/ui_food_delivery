@@ -8,7 +8,7 @@ class QCheckField extends StatefulWidget {
   final List? value;
   final Future<List<Map<String, dynamic>>> Function()? onFuture;
   final Function(List<Map<String, dynamic>> values, List ids) onChanged;
-  final String? helperText;
+  final String? helper;
 
   const QCheckField({
     Key? key,
@@ -18,7 +18,7 @@ class QCheckField extends StatefulWidget {
     this.value,
     this.onFuture,
     this.hint,
-    this.helperText,
+    this.helper,
     required this.onChanged,
   }) : super(key: key);
 
@@ -75,7 +75,7 @@ class _QCheckFieldState extends State<QCheckField> {
               labelText: widget.label,
               errorText: field.errorText,
               border: InputBorder.none,
-              helperText: widget.helperText,
+              helperText: widget.helper,
               hintText: widget.hint,
             ),
             child: ListView.builder(

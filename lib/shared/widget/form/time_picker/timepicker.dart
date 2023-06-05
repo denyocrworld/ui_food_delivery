@@ -4,7 +4,7 @@ class QTimePicker extends StatefulWidget {
   final String label;
   final TimeOfDay? value;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final String? Function(String?)? validator;
   final Function(TimeOfDay?) onChanged;
 
@@ -14,7 +14,7 @@ class QTimePicker extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
-    this.helperText,
+    this.helper,
     required this.onChanged,
   }) : super(key: key);
 
@@ -99,7 +99,7 @@ class _QTimePickerState extends State<QTimePicker> {
               suffixIcon: const Icon(
                 Icons.timer,
               ),
-              helperText: widget.helperText,
+              helperText: widget.helper,
               hintText: widget.hint,
             ),
           ),

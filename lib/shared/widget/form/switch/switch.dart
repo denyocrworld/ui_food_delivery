@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class QSwitch extends StatefulWidget {
   final String label;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final List<Map<String, dynamic>> items;
   final String? Function(List<Map<String, dynamic>> item)? validator;
   final List? value;
@@ -16,7 +16,7 @@ class QSwitch extends StatefulWidget {
     this.validator,
     this.value,
     this.hint,
-    this.helperText,
+    this.helper,
     required this.onChanged,
   }) : super(key: key);
 
@@ -51,7 +51,7 @@ class _QSwitchState extends State<QSwitch> {
               labelText: widget.label,
               errorText: field.errorText,
               border: InputBorder.none,
-              helperText: widget.helperText,
+              helperText: widget.helper,
               hintText: widget.hint,
             ),
             child: ListView.builder(

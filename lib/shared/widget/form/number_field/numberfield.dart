@@ -5,7 +5,7 @@ class QNumberField extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final String? Function(String?)? validator;
   final Function(String) onChanged;
   final Function(String)? onSubmitted;
@@ -19,7 +19,7 @@ class QNumberField extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
-    this.helperText,
+    this.helper,
     required this.onChanged,
     this.onSubmitted,
     this.pattern,
@@ -68,7 +68,7 @@ class _QNumberFieldState extends State<QNumberField> {
           suffixIcon: const Icon(
             Icons.numbers,
           ),
-          helperText: widget.helperText,
+          helperText: widget.helper,
           hintText: widget.hint,
         ),
         onChanged: (newValue) {

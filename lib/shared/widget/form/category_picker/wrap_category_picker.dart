@@ -7,7 +7,7 @@ class QWrapCategoryPicker extends StatefulWidget {
   final dynamic value;
   final String? Function(int? value)? validator;
   final String? hint;
-  final String? helperText;
+  final String? helper;
 
   final Function(
     Map<String, dynamic> item,
@@ -31,7 +31,7 @@ class QWrapCategoryPicker extends StatefulWidget {
     this.label,
     this.wrapMode = false,
     this.hint,
-    this.helperText,
+    this.helper,
   }) : super(key: key);
 
   @override

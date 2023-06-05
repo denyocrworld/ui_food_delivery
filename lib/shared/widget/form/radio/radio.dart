@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class QRadioField extends StatefulWidget {
   final String label;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final List<Map<String, dynamic>> items;
   final String? Function(List<Map<String, dynamic>> item)? validator;
   final Function(dynamic value, String? label) onChanged;
@@ -15,7 +15,7 @@ class QRadioField extends StatefulWidget {
     required this.items,
     this.validator,
     this.hint,
-    this.helperText,
+    this.helper,
     this.value,
     required this.onChanged,
   }) : super(key: key);
@@ -60,7 +60,7 @@ class _QRadioFieldState extends State<QRadioField> {
               labelText: widget.label,
               errorText: field.errorText,
               border: InputBorder.none,
-              helperText: widget.helperText,
+              helperText: widget.helper,
               hintText: widget.hint,
             ),
             child: ListView.builder(

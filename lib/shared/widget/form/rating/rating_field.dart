@@ -8,7 +8,7 @@ class QRatingField extends StatefulWidget {
   final String? Function(double?)? validator;
   final Function(double value)? onChanged;
   final String? hint;
-  final String? helperText;
+  final String? helper;
 
   const QRatingField({
     Key? key,
@@ -18,7 +18,7 @@ class QRatingField extends StatefulWidget {
     this.validator,
     this.enabled = false,
     this.hint,
-    this.helperText,
+    this.helper,
   }) : super(key: key);
 
   @override
@@ -75,7 +75,7 @@ class _QRatingFieldState extends State<QRatingField> {
                     initialValue: " ",
                     decoration: InputDecoration(
                       labelText: widget.label,
-                      helperText: widget.helperText,
+                      helperText: widget.helper,
                       hintText: widget.hint,
                       errorText: field.errorText,
                     ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class QAutoComplete extends StatefulWidget {
   final String label;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final dynamic value;
   final List<Map<String, dynamic>> items;
   final String? Function(String? item)? validator;
@@ -18,7 +18,7 @@ class QAutoComplete extends StatefulWidget {
     this.onFuture,
     this.validator,
     this.hint,
-    this.helperText,
+    this.helper,
     this.value,
     required this.onChanged,
   }) : super(key: key);
@@ -85,7 +85,7 @@ class _QAutoCompleteState extends State<QAutoComplete> {
                         labelText: widget.label,
                         errorText: field.errorText,
                         suffixIcon: const Icon(Icons.search),
-                        helperText: widget.helperText,
+                        helperText: widget.helper,
                         hintText: widget.hint,
                       ),
                     ),

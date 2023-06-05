@@ -5,7 +5,7 @@ class QDatePicker extends StatefulWidget {
   final String label;
   final DateTime? value;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final String? Function(String?)? validator;
   final Function(DateTime) onChanged;
 
@@ -15,7 +15,7 @@ class QDatePicker extends StatefulWidget {
     this.value,
     this.validator,
     this.hint,
-    this.helperText,
+    this.helper,
     required this.onChanged,
   }) : super(key: key);
 
@@ -91,7 +91,7 @@ class _QDatePickerState extends State<QDatePicker> {
               suffixIcon: const Icon(
                 Icons.date_range,
               ),
-              helperText: widget.helperText,
+              helperText: widget.helper,
               hintText: widget.hint,
             ),
           ),

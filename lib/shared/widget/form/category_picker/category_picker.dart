@@ -6,7 +6,7 @@ class QCategoryPicker extends StatefulWidget {
   final dynamic value;
   final String? Function(int? value)? validator;
   final String? hint;
-  final String? helperText;
+  final String? helper;
 
   final Function(
     Map<String, dynamic> item,
@@ -29,7 +29,7 @@ class QCategoryPicker extends StatefulWidget {
     this.validator,
     this.label,
     this.hint,
-    this.helperText,
+    this.helper,
   }) : super(key: key);
 
   @override
@@ -100,7 +100,7 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
               fillColor: Colors.transparent,
               enabledBorder: InputBorder.none,
               errorBorder: InputBorder.none,
-              helperText: widget.helperText,
+              helperText: widget.helper,
               hintText: widget.hint,
             ),
             child: SizedBox(

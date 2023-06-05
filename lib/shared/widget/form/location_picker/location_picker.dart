@@ -11,7 +11,7 @@ class QLocationPicker extends StatefulWidget {
   final String id;
   final String? label;
   final String? hint;
-  final String? helperText;
+  final String? helper;
   final double? latitude;
   final double? longitude;
   final String? Function(double? latitude, double? longitude)? validator;
@@ -23,7 +23,7 @@ class QLocationPicker extends StatefulWidget {
     required this.id,
     this.label,
     this.hint,
-    this.helperText,
+    this.helper,
     this.latitude,
     this.longitude,
     this.validator,
@@ -110,7 +110,7 @@ class _QLocationPickerState extends State<QLocationPicker> {
               labelText: widget.label,
               errorText: field.errorText,
               border: InputBorder.none,
-              helperText: widget.helperText,
+              helperText: widget.helper,
               hintText: widget.hint,
             ),
             child: Container(
