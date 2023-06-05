@@ -80,6 +80,12 @@ class _HUIWidgetDemoViewState extends State<HUIWidgetDemoView> {
                   validator: Validator.required,
                   onChanged: (value) {},
                 ),
+                QRatingField(
+                  label: "Rating",
+                  value: 3.4,
+                  validator: Validator.required,
+                  onChanged: (value) {},
+                ),
                 QAutoComplete(
                   label: "Favorite employee",
                   hint: "Your favorite Employee",

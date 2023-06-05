@@ -17,8 +17,6 @@ class Validator {
       return "This field is required";
     }
 
-    print(value is List);
-    print("vvvv: $value");
     if (value is String || value == null) {
       if (value.toString() == "null") return "This field is required";
       if (value.isEmpty) return "This field is required";

@@ -27,79 +27,100 @@ class QRatingField extends StatefulWidget {
 
 class _QRatingFieldState extends State<QRatingField> {
   double? currentValue;
+  GlobalKey widgetKey = GlobalKey();
 
   @override
   void initState() {
     currentValue = widget.value;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      getHeight();
+    });
+
     super.initState();
   }
 
+  getHeight() {
+    final RenderBox? renderBox =
+        widgetKey.currentContext?.findRenderObject() as RenderBox?;
+    if (renderBox != null) {
+      final size = renderBox.size;
+      setState(() {
+        widgetHeight = size.height;
+      });
+    }
+  }
+
+  double widgetHeight = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(
-        bottom: 12.0,
-      ),
-      child: Stack(
-        children: [
-          TextFormField(
-            initialValue: " ",
-            enabled: widget.enabled,
-            validator: (value) {
-              if (widget.validator != null) {
-                widget.validator!(currentValue);
-              }
-              return null;
-            },
-            decoration: InputDecoration(
-              labelText: widget.label,
-              helperText: widget.helperText,
-              hintText: widget.hint,
+    return FormField(
+        initialValue: false,
+        enabled: widget.enabled,
+        validator: (value) {
+          if (widget.validator != null) {
+            return widget.validator!(currentValue);
+          }
+          return null;
+        },
+        builder: (field) {
+          return Container(
+            margin: const EdgeInsets.only(
+              bottom: 12.0,
             ),
-            // onChanged: (value) {
-
-            //   widget.onChanged!(value);
-            // },
-            // onFieldSubmitted: (value) {
-            //   if (widget.onSubmitted != null) widget.onSubmitted!(value);
-            // },
-          ),
-          Positioned(
-            left: Theme.of(context)
-                    .inputDecorationTheme
-                    .contentPadding
-                    ?.horizontal ??
-                12.0,
-            top: 0,
-            right: 0,
-            bottom: 0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Stack(
               children: [
-                RatingBar.builder(
-                  initialRating: widget.value ?? 0,
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: true,
-                  itemCount: 5,
-                  itemBuilder: (context, _) => const Icon(
-                    Icons.star,
-                    color: Colors.amber,
+                Container(
+                  key: widgetKey,
+                  child: TextFormField(
+                    initialValue: " ",
+                    decoration: InputDecoration(
+                      labelText: widget.label,
+                      helperText: widget.helperText,
+                      hintText: widget.hint,
+                      errorText: field.errorText,
+                    ),
                   ),
-                  itemSize: 20.0,
-                  onRatingUpdate: (rating) {
-                    print(rating);
-                    if (widget.onChanged != null) {
-                      widget.onChanged!(rating);
-                    }
-                  },
+                ),
+                Positioned(
+                  left: Theme.of(context)
+                          .inputDecorationTheme
+                          .contentPadding
+                          ?.horizontal ??
+                      12.0,
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    height: widgetHeight,
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RatingBar.builder(
+                          initialRating: widget.value ?? 0,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemBuilder: (context, _) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          itemSize: 20.0,
+                          onRatingUpdate: (rating) {
+                            currentValue = rating;
+                            if (widget.onChanged != null) {
+                              widget.onChanged!(rating);
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
+        });
   }
 }
