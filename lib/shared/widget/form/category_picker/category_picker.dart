@@ -5,7 +5,7 @@ class QCategoryPicker extends StatefulWidget {
   final String? label;
   final bool? wrapMode;
   final dynamic value;
-  final String? Function(int value)? validator;
+  final String? Function(int? value)? validator;
   final String? hint;
   final String? helperText;
 
@@ -21,7 +21,7 @@ class QCategoryPicker extends StatefulWidget {
     dynamic value,
     Map<String, dynamic> item,
   ) onChanged;
-  const QCategoryPicker({
+  QCategoryPicker({
     Key? key,
     required this.items,
     required this.onChanged,
@@ -64,7 +64,7 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
             color: Theme.of(context).textTheme.bodySmall?.color,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 6.0,
         ),
       ],
@@ -83,12 +83,13 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
+      margin: EdgeInsets.only(
         bottom: 12.0,
       ),
       child: FormField(
         initialValue: false,
-        validator: (value) => widget.validator!(selectedIndex),
+        validator: (value) =>
+            widget.validator!(selectedIndex == -1 ? null : selectedIndex),
         enabled: true,
         builder: (FormFieldState<bool> field) {
           if (widget.wrapMode == true) {
@@ -118,7 +119,7 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                         child: Card(
                           color: selected ? Colors.black : null,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Text(item["label"]),
                           ),
                         ),
@@ -143,7 +144,7 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     height: 6.0,
                   ),
                   SingleChildScrollView(
@@ -163,6 +164,23 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                           });
                         }
 
+                        return Container(
+                          margin: const EdgeInsets.only(
+                            right: 12.0,
+                          ),
+                          child: ElevatedButton(
+                            style: selected
+                                ? null
+                                : ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        Theme.of(context).disabledColor,
+                                    elevation: 0.0,
+                                  ),
+                            onPressed: () => updateIndex(index),
+                            child: Text(item["label"]),
+                          ),
+                        );
+
                         return InkWell(
                           focusColor: Colors.transparent,
                           hoverColor: Colors.transparent,
@@ -171,8 +189,13 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                           child: Card(
                             color: selected ? Colors.black : null,
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(item["label"]),
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                item["label"],
+                                style: TextStyle(
+                                  color: selected ? Colors.white : Colors.black,
+                                ),
+                              ),
                             ),
                           ),
                         );
