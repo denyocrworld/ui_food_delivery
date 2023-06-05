@@ -239,7 +239,7 @@ class _QImagePickerState extends State<QImagePicker> {
                             child: Text(
                               "Browse",
                               style: TextStyle(
-                                fontSize: 10.0,
+                                fontSize: 12.0,
                               ),
                             ),
                           ),

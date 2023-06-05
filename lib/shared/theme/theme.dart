@@ -6,6 +6,7 @@ ThemeData getDefaultTheme() {
   return ThemeData().copyWith(
     primaryColor: primaryColor,
     scaffoldBackgroundColor: Colors.white,
+    colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       elevation: 0.6,
