@@ -30,7 +30,7 @@ class _QRatingFieldState extends State<QRatingField> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    currentValue = widget.value;
     super.initState();
   }
 
