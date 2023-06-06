@@ -9,6 +9,9 @@
         "widget_collection/typography_widget",
         "widget_collection/color_widget",
         "widget_collection/module_list",
-        "widget_collection/testss"
+        "dashboard1",
+        "dashboard2",
+        "dashboard3"
+
     ]
 }

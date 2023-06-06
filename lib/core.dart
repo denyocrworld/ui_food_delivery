@@ -5,6 +5,12 @@ it means you have to rename it to something more unique.
 */
 export 'package:hyper_ui/module/dashboard/controller/dashboard_controller.dart';
 export 'package:hyper_ui/module/dashboard/view/dashboard_view.dart';
+export 'package:hyper_ui/module/dashboard1/controller/dashboard1_controller.dart';
+export 'package:hyper_ui/module/dashboard1/view/dashboard1_view.dart';
+export 'package:hyper_ui/module/dashboard2/controller/dashboard2_controller.dart';
+export 'package:hyper_ui/module/dashboard2/view/dashboard2_view.dart';
+export 'package:hyper_ui/module/dashboard3/controller/dashboard3_controller.dart';
+export 'package:hyper_ui/module/dashboard3/view/dashboard3_view.dart';
 export 'package:hyper_ui/module/favorite/controller/favorite_controller.dart';
 export 'package:hyper_ui/module/favorite/view/favorite_view.dart';
 export 'package:hyper_ui/module/main_navigation/controller/main_navigation_controller.dart';

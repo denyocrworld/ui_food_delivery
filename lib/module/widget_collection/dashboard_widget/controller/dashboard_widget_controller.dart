@@ -20,6 +20,10 @@ class DashboardWidgetController extends State<DashboardWidgetView>
 
   List menuList = [
     {
+      "label": "Module List",
+      "view": ModuleListView(),
+    },
+    {
       "label": "Color",
       "view": ColorWidgetView(),
     },
