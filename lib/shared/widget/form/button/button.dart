@@ -6,11 +6,15 @@ import 'package:hyper_ui/core.dart';
 class QButton extends StatelessWidget {
   final String label;
   final Function onPressed;
+  final Color? color;
+  final IconData? icon;
   final double? width;
-  const QButton({
+  QButton({
     Key? key,
     required this.label,
     required this.onPressed,
+    this.icon,
+    this.color,
     this.width,
   }) : super(key: key);
 
@@ -18,17 +22,28 @@ class QButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width ?? MediaQuery.of(context).size.width,
-      height: 48,
+      height: 42,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryColor,
+          backgroundColor: color ?? primaryColor,
         ),
         onPressed: () => onPressed(),
-        child: Text(
-          label,
-          style: const TextStyle(
-            fontSize: 16.0,
-          ),
+        child: Row(
+          children: [
+            if (icon != null)
+              Icon(
+                icon,
+                size: 24.0,
+              ),
+            Spacer(),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 16.0,
+              ),
+            ),
+            Spacer(),
+          ],
         ),
       ),
     );

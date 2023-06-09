@@ -2,15 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
 class ModuleListView extends StatefulWidget {
-  const ModuleListView({Key? key}) : super(key: key);
+  ModuleListView({Key? key}) : super(key: key);
 
   Widget build(context, ModuleListController controller) {
     controller.view = this;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ModuleList"),
-        actions: const [],
+        title: Text("ModuleList"),
+        actions: [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              backgroundColor: primaryColor.withOpacity(0.2),
+              child: Text(
+                "${controller.menuList.length}",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: primaryColor,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         controller: ScrollController(),
