@@ -9,7 +9,7 @@ class DashboardWidgetView extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("WidgetCollection"),
+        title: Text("DashboardWidget"),
         actions: [],
       ),
       body: SingleChildScrollView(
