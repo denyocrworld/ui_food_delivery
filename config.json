@@ -37,14 +37,14 @@
         "search_result2",
         "order_list1",
         "order_detail1",
-        "dialog", 
-        "account_setting1", 
-        "profile_setting1", 
-        "change_password1", 
-        "payment_method1", 
-        "card_list1", 
-        "locations1", 
-        "add_social_accounts1", 
-        "refer_to_friends1" 
+        "dialog",
+        "account_setting1",
+        "profile_setting1",
+        "change_password1",
+        "payment_method1",
+        "card_list1",
+        "locations1",
+        "add_social_accounts1",
+        "refer_to_friends1"
     ]
 }
