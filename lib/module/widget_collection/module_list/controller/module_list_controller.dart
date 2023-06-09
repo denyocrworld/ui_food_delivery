@@ -48,99 +48,99 @@ class ModuleListController extends State<ModuleListView>
       "view": Dashboard4View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "RestaurantList1View",
       "view": RestaurantList1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "RestaurantList2View",
       "view": RestaurantList2View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "ProductDetail1View",
       "view": ProductDetail1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "ProductDetail2View",
       "view": ProductDetail2View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "ProductDetail3View",
       "view": ProductDetail3View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "OrderDetail1View",
       "view": OrderDetail1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "AddPaymentMethod1View",
       "view": AddPaymentMethod1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "Filter1View",
       "view": Filter1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "ProductList1View",
       "view": ProductList1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "CategoryList1View",
       "view": CategoryList1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "SearchProduct1View",
       "view": SearchProduct1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "SearchResult1View",
       "view": SearchResult1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "SearchResult2View",
       "view": SearchResult2View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "OrderList1View",
       "view": OrderList1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "OrderDetail1View",
       "view": OrderDetail1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "DialogView",
       "view": DialogView(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "AccountSetting1View",
       "view": AccountSetting1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "ProfileSetting1View",
       "view": ProfileSetting1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "ChangePassword1View",
       "view": ChangePassword1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "PaymentMethod1View",
       "view": PaymentMethod1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "CardList1View",
       "view": CardList1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "Locations1View",
       "view": Locations1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "AddSocialAccounts1View",
       "view": AddSocialAccounts1View(),
     },
     {
-      "label": "Dashboard4View",
+      "label": "ReferToFriends1View",
       "view": ReferToFriends1View(),
     },
   ];
