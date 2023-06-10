@@ -11,7 +11,7 @@ class RestaurantList1View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("RestaurantList1"),
+        title: const Text("Restaurant List (Part 1)"),
         actions: const [],
       ),
       body: ListView.separated(
@@ -36,9 +36,9 @@ class RestaurantList1View extends StatefulWidget {
                 ),
               ),
               SizedBox(height: 10),
-              NameContainer(item: item),
-              SizedBox(height: 6),
-              CategoriesContainer(item: item),
+              RestaurantNameContainer(item: item),
+              SizedBox(height: 8),
+              RestaurantCategoriesContainer(item: item),
               SizedBox(height: 6),
               InfoContainer(item: item),
             ],
@@ -50,6 +50,80 @@ class RestaurantList1View extends StatefulWidget {
 
   @override
   State<RestaurantList1View> createState() => RestaurantList1Controller();
+}
+
+class RestaurantNameContainer extends StatelessWidget {
+  const RestaurantNameContainer({
+    super.key,
+    required this.item,
+  });
+
+  final Restaurant item;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      item.name,
+      style: TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+}
+
+class RestaurantCategoriesContainer extends StatelessWidget {
+  const RestaurantCategoriesContainer({
+    super.key,
+    required this.item,
+  });
+
+  final Restaurant item;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          "\$\$",
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.grey,
+          ),
+        ),
+        ...item.categories.map((e) {
+          return Row(
+            children: [
+              DotCenter(),
+              Text(
+                e,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          );
+        }),
+      ],
+    );
+  }
+}
+
+class DotCenter extends StatelessWidget {
+  const DotCenter({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 3,
+      width: 3,
+      margin: EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
+    );
+  }
 }
 
 class InfoContainer extends StatelessWidget {
@@ -67,7 +141,7 @@ class InfoContainer extends StatelessWidget {
         Text(
           "${item.rating}",
           style: TextStyle(
-            fontSize: 15,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -84,7 +158,7 @@ class InfoContainer extends StatelessWidget {
             fontSize: 15,
           ),
         ),
-        SizedBox(width: 6),
+        SizedBox(width: 14),
         Icon(
           Icons.watch_later_rounded,
           size: 15,
@@ -97,7 +171,7 @@ class InfoContainer extends StatelessWidget {
             fontSize: 15,
           ),
         ),
-        SizedBox(width: 6),
+        DotCenter(),
         Icon(
           Icons.monetization_on,
           size: 15,
@@ -111,69 +185,6 @@ class InfoContainer extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class CategoriesContainer extends StatelessWidget {
-  const CategoriesContainer({
-    super.key,
-    required this.item,
-  });
-
-  final Restaurant item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          "\$\$",
-          style: TextStyle(
-            fontSize: 15,
-            color: Colors.grey,
-          ),
-        ),
-        ...item.categories.map((e) {
-          return Row(
-            children: [
-              Container(
-                height: 3,
-                width: 3,
-                margin: EdgeInsets.symmetric(horizontal: 6),
-                decoration: BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
-              ),
-              Text(
-                e,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          );
-        }),
-      ],
-    );
-  }
-}
-
-class NameContainer extends StatelessWidget {
-  const NameContainer({
-    super.key,
-    required this.item,
-  });
-
-  final Restaurant item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      item.name,
-      style: TextStyle(
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
-      ),
     );
   }
 }
