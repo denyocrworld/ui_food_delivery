@@ -8,6 +8,7 @@
         "widget_collection/button_widget",
         "widget_collection/typography_widget",
         "widget_collection/color_widget",
+        "widget_collection/uncategorized_widget",
         "widget_collection/module_list",
         "intro1",
         "login1",

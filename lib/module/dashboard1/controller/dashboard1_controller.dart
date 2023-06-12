@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/state_util.dart';
 import '../view/dashboard1_view.dart';
@@ -19,8 +18,6 @@ class Dashboard1Controller extends State<Dashboard1View>
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
-  int currentIndex = 0;
-  final CarouselController carouselController = CarouselController();
 
   List<String> image = [
     "https://i.ibb.co/dG68KJM/photo-1513104890138-7c749659a591-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
