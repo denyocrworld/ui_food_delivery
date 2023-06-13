@@ -1,23 +1,91 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:hyper_ui/core.dart';
-import '../controller/product_list1_controller.dart';
 
 class ProductList1View extends StatefulWidget {
-  const ProductList1View({Key? key}) : super(key: key);
+  ProductList1View({Key? key}) : super(key: key);
 
   Widget build(context, ProductList1Controller controller) {
     controller.view = this;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ProductList1"),
-        actions: const [],
-      ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(20.0),
           child: Column(
-            children: const [],
+            children: [
+              H1(
+                title: "Search",
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 6.0,
+                  horizontal: 12.0,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(12.0),
+                  ),
+                  border: Border.all(
+                    width: 1.0,
+                    color: Colors.grey[400]!,
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(Icons.search),
+                    ),
+                    Expanded(
+                      child: TextFormField(
+                        initialValue: null,
+                        decoration: const InputDecoration.collapsed(
+                          filled: true,
+                          fillColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          hintText: "Search on foodly",
+                        ),
+                        onFieldSubmitted: (value) {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 34.0,
+              ),
+              H3(
+                title: "Top Restaurants",
+              ),
+              const SizedBox(
+                height: 16.0,
+              ),
+              GridView.builder(
+                padding: EdgeInsets.zero,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1.0,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                ),
+                itemCount: controller.products.length,
+                shrinkWrap: true,
+                physics: ScrollPhysics(),
+                itemBuilder: (BuildContext context, int index) {
+                  var item = controller.products[index];
+                  return CardSerching(
+                      image: item['photo'],
+                      title: "Coffe Latte",
+                      category: "Drinks");
+                },
+              ),
+            ],
           ),
         ),
       ),
@@ -26,4 +94,83 @@ class ProductList1View extends StatefulWidget {
 
   @override
   State<ProductList1View> createState() => ProductList1Controller();
+}
+
+class CardSerching extends StatelessWidget {
+  final String image;
+  final String title;
+  final String category;
+  CardSerching({
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.category,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 180.0,
+      width: 160,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(
+            8.0,
+          ),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                    image,
+                  ),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    8.0,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 16.0,
+            ),
+          ),
+          const SizedBox(
+            height: 4.0,
+          ),
+          Row(
+            children: [
+              Text(
+                "\$\$",
+                style: TextStyle(
+                  fontSize: 14.0,
+                ),
+              ),
+              DotCenter(),
+              Text(
+                category,
+                style: TextStyle(
+                  fontSize: 14.0,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }

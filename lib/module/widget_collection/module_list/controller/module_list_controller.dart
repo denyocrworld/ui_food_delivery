@@ -84,6 +84,10 @@ class ModuleListController extends State<ModuleListView>
       "view": ProductList1View(),
     },
     {
+      "label": "ProductList2View",
+      "view": ProductList2View(),
+    },
+    {
       "label": "CategoryList1View",
       "view": CategoryList1View(),
     },
