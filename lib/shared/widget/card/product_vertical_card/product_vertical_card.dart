@@ -97,14 +97,13 @@ class ProductVerticalCard extends StatelessWidget {
             height: 9.0,
           ),
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "$rating",
                 style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w500),
               ),
               const SizedBox(
-                width: 9.0,
+                width: 6.0,
               ),
               const Icon(
                 Icons.star,
@@ -123,24 +122,24 @@ class ProductVerticalCard extends StatelessWidget {
               ),
               const Icon(
                 Icons.timer,
-                size: 12.0,
+                color: Colors.black54,
+                size: 14.0,
               ),
               const SizedBox(
-                width: 9.0,
+                width: 6.0,
               ),
               Text(
                 time,
                 style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w500),
               ),
-              const SizedBox(
-                width: 9.0,
-              ),
+              DotContainer(),
               const Icon(
-                Icons.money,
-                size: 12.0,
+                Icons.monetization_on,
+                color: Colors.grey,
+                size: 14.0,
               ),
               const SizedBox(
-                width: 9.0,
+                width: 6.0,
               ),
               Text(
                 delivery,
