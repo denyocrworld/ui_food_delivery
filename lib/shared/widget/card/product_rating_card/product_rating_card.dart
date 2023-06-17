@@ -2,7 +2,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import '../../shape/dot_center/dot_center.dart';
+import '../../shape/dot_center/dot_container.dart';
 
 class ProductRatingCard extends StatefulWidget {
   final String image;
