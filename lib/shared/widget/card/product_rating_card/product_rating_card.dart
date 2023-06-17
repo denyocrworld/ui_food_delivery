@@ -134,10 +134,7 @@ class _ProductRatingCardState extends State<ProductRatingCard> {
                       child: Center(
                         child: Text(
                           "${widget.rating}",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w600),
+                          style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.w600),
                         ),
                       ),
                     ),
@@ -164,7 +161,7 @@ class _ProductRatingCardState extends State<ProductRatingCard> {
                 var category = widget.categories[index];
                 return Row(
                   children: [
-                    if (index > 0) DotCenter(),
+                    if (index > 0) DotContainer(),
                     Text(
                       "${category}",
                       style: TextStyle(

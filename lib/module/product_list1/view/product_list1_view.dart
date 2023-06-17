@@ -80,9 +80,10 @@ class ProductList1View extends StatefulWidget {
                 itemBuilder: (BuildContext context, int index) {
                   var item = controller.products[index];
                   return CardSerching(
-                      image: item['photo'],
-                      title: "Coffe Latte",
-                      category: "Drinks");
+                    image: item['photo'],
+                    title: "Coffe Latte",
+                    category: "Drinks",
+                  );
                 },
               ),
             ],
@@ -160,7 +161,7 @@ class CardSerching extends StatelessWidget {
                   fontSize: 14.0,
                 ),
               ),
-              DotCenter(),
+              DotContainer(),
               Text(
                 category,
                 style: TextStyle(
