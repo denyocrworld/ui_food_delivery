@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
+import 'package:hyper_ui/module/order_detail1/widget/dialog_success_info.dart';
 
 import '../data/data_dummy.dart';
 
@@ -226,7 +227,9 @@ class OrderDetail1View extends StatefulWidget {
               ),
               QButton(
                 label: "CONTINUE(\$11.98)",
-                onPressed: () {},
+                onPressed: () {
+                  showCheckoutSuccessDialog();
+                },
               ),
             ],
           ),
