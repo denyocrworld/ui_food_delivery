@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/payment_method1_controller.dart';
 
 class PaymentMethod1View extends StatefulWidget {
   const PaymentMethod1View({Key? key}) : super(key: key);
@@ -15,9 +14,68 @@ class PaymentMethod1View extends StatefulWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
+          width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [],
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.chevron_left),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Payment Method",
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 117.0,
+              ),
+              Image.network(
+                "https://i.ibb.co/G2C1mbz/greencard-illustration-removebg.png",
+                width: 120.0,
+                height: 120.0,
+                fit: BoxFit.cover,
+              ),
+              const SizedBox(
+                height: 40.0,
+              ),
+              Text(
+                "Don't have any card :)",
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 24.0,
+              ),
+              Text(
+                "It's seems like you don't add any credit or debit card. You may easily add card.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: secondaryTextColor,
+                ),
+              ),
+              const SizedBox(
+                height: 40.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 60),
+                child: QOutlineSuccessButton(
+                  label: "ADD CREDIT CARDS",
+                  onPressed: () {},
+                ),
+              ),
+            ],
           ),
         ),
       ),
