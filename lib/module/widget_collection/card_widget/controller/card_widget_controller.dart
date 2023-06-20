@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hyper_ui/state_util.dart';
 import '../view/card_widget_view.dart';
 
-class CardWidgetController extends State<CardWidgetView> implements MvcController {
+class CardWidgetController extends State<CardWidgetView>
+    implements MvcController {
   static late CardWidgetController instance;
   late CardWidgetView view;
 
