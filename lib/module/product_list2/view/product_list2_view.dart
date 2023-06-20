@@ -55,6 +55,29 @@ class ProductList2View extends StatefulWidget {
                   );
                 },
               ),
+              (controller.statusUser == false)
+                  ? Container(
+                      height: 100.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.orange,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            16.0,
+                          ),
+                        ),
+                      ),
+                    )
+                  : Container(
+                      height: 100.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            16.0,
+                          ),
+                        ),
+                      ),
+                    ),
             ],
           ),
         ),

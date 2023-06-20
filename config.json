@@ -1,5 +1,4 @@
 {
-    "openai_key": "",
     "modules": [
         "widget_collection/dashboard_widget",
         "widget_collection/carousel_widget",
@@ -48,5 +47,8 @@
         "locations1",
         "add_social_accounts1",
         "refer_to_friends1"
-    ]
+    ],
+    "module_directory_name": "module",
+    "experimental_mode": false,
+    "unfreezed": true
 }
