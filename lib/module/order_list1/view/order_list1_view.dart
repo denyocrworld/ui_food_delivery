@@ -10,6 +10,11 @@ class OrderList1View extends StatefulWidget {
     controller.view = this;
 
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        title: Text("OrderList1"),
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
@@ -96,7 +101,7 @@ class OrderList1View extends StatefulWidget {
                               Row(
                                 children: [
                                   Text("\$\$"),
-                                  Text("."),
+                                  DotContainer(),
                                   Text(item['country']),
                                   Spacer(),
                                   Text(
@@ -119,7 +124,7 @@ class OrderList1View extends StatefulWidget {
                 height: 34.0,
               ),
               Opacity(
-                opacity: 0.4,
+                opacity: 0.6,
                 child: ListView.builder(
                   itemCount: OrderList.pastOrderList.length,
                   shrinkWrap: true,
@@ -186,7 +191,7 @@ class OrderList1View extends StatefulWidget {
                                   Row(
                                     children: [
                                       Text("\$\$"),
-                                      Text("."),
+                                      DotContainer(),
                                       Text(item['country']),
                                       Spacer(),
                                       Text(

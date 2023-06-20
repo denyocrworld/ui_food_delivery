@@ -223,7 +223,7 @@ class OrderDetail1View extends StatefulWidget {
                 color: Color.fromRGBO(103, 103, 103, 0.1),
               ),
               const SizedBox(
-                height: 64.0,
+                height: 20.0,
               ),
               QButton(
                 label: "CONTINUE(\$11.98)",

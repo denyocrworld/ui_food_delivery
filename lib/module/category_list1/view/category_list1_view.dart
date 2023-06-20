@@ -10,6 +10,11 @@ class CategoryList1View extends StatefulWidget {
     controller.view = this;
 
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        title: Text("CategoryList1"),
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
