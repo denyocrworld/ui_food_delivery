@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DotCenter extends StatelessWidget {
-  const DotCenter({
+class DotContainer extends StatelessWidget {
+  const DotContainer({
     super.key,
   });
 

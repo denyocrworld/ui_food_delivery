@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/shared/widget/shape/dot_center/dot_center.dart';
+import 'package:hyper_ui/shared/widget/shape/dot_center/dot_container.dart';
 
 class ProductCard extends StatefulWidget {
   final String image;
@@ -92,10 +92,7 @@ class _ProductCardState extends State<ProductCard> {
                 child: Center(
                   child: Text(
                     "${widget.rating}",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w600),
+                    style: TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.w600),
                   ),
                 ),
               ),
@@ -106,7 +103,7 @@ class _ProductCardState extends State<ProductCard> {
                 widget.time,
                 style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500),
               ),
-              DotCenter(),
+              DotContainer(),
               Text(
                 widget.delivery,
                 style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500),

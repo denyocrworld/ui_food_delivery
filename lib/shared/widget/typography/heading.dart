@@ -9,6 +9,8 @@ class HeadingWidget extends StatelessWidget {
   final double titleFontSize;
   final double subtitleFontSize;
   final Function? onPressed;
+  final Color? titleColor;
+  final Color? subtitleColor;
   const HeadingWidget({
     Key? key,
     required this.title,
@@ -16,6 +18,8 @@ class HeadingWidget extends StatelessWidget {
     required this.subtitleFontSize,
     this.subtitle,
     this.onPressed,
+    this.titleColor,
+    this.subtitleColor,
   }) : super(key: key);
 
   @override
@@ -30,6 +34,7 @@ class HeadingWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: titleFontSize,
                 fontWeight: FontWeight.bold,
+                color: titleColor ?? Colors.black,
               ),
             ),
           ),
@@ -45,7 +50,7 @@ class HeadingWidget extends StatelessWidget {
                 subtitle!,
                 style: TextStyle(
                   fontSize: subtitleFontSize,
-                  color: primaryColor,
+                  color: subtitleColor ?? primaryColor,
                 ),
               ),
             ),
@@ -59,6 +64,8 @@ Widget H1({
   required String title,
   String? subtitle,
   Function? onPressed,
+  Color? titleColor,
+  Color? subtitleColor,
 }) {
   return HeadingWidget(
     title: title,
@@ -66,6 +73,8 @@ Widget H1({
     titleFontSize: 32,
     subtitleFontSize: 16,
     onPressed: onPressed,
+    titleColor: titleColor,
+    subtitleColor: subtitleColor,
   );
 }
 
@@ -73,6 +82,8 @@ Widget H2({
   required String title,
   String? subtitle,
   Function? onPressed,
+  Color? titleColor,
+  Color? subtitleColor,
 }) {
   return HeadingWidget(
     title: title,
@@ -80,6 +91,8 @@ Widget H2({
     titleFontSize: 28,
     subtitleFontSize: 16,
     onPressed: onPressed,
+    titleColor: titleColor,
+    subtitleColor: subtitleColor,
   );
 }
 
@@ -87,6 +100,8 @@ Widget H3({
   required String title,
   String? subtitle,
   Function? onPressed,
+  Color? titleColor,
+  Color? subtitleColor,
 }) {
   return HeadingWidget(
     title: title,
@@ -94,6 +109,8 @@ Widget H3({
     titleFontSize: 24,
     subtitleFontSize: 16,
     onPressed: onPressed,
+    titleColor: titleColor,
+    subtitleColor: subtitleColor,
   );
 }
 
@@ -101,6 +118,8 @@ Widget H4({
   required String title,
   String? subtitle,
   Function? onPressed,
+  Color? titleColor,
+  Color? subtitleColor,
 }) {
   return HeadingWidget(
     title: title,
@@ -108,6 +127,8 @@ Widget H4({
     titleFontSize: 20,
     subtitleFontSize: 16,
     onPressed: onPressed,
+    titleColor: titleColor,
+    subtitleColor: subtitleColor,
   );
 }
 
@@ -115,6 +136,8 @@ Widget H5({
   required String title,
   String? subtitle,
   Function? onPressed,
+  Color? titleColor,
+  Color? subtitleColor,
 }) {
   return HeadingWidget(
     title: title,
@@ -122,6 +145,8 @@ Widget H5({
     titleFontSize: 18,
     subtitleFontSize: 16,
     onPressed: onPressed,
+    titleColor: titleColor,
+    subtitleColor: subtitleColor,
   );
 }
 
@@ -129,6 +154,8 @@ Widget H6({
   required String title,
   String? subtitle,
   Function? onPressed,
+  Color? titleColor,
+  Color? subtitleColor,
 }) {
   return HeadingWidget(
     title: title,
@@ -136,5 +163,7 @@ Widget H6({
     titleFontSize: 16,
     subtitleFontSize: 16,
     onPressed: onPressed,
+    titleColor: titleColor,
+    subtitleColor: subtitleColor,
   );
 }

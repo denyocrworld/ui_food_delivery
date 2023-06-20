@@ -25,12 +25,12 @@ class RestaurantList1View extends StatefulWidget {
           final item = controller.restaurantList[index];
           return ProductVerticalCard(
             images: item.images,
-            title: "Soup Kuning",
+            title: item.name,
             categories: item.categories,
             ratingCount: item.ratingCount,
-            delivery: "Free",
             rating: item.rating,
             time: "30min",
+            delivery: "Free",
           );
         },
       ),

@@ -156,7 +156,7 @@ export 'package:hyper_ui/shared/widget/form/switch/switch.dart';
 export 'package:hyper_ui/shared/widget/form/textfield/text_field.dart';
 export 'package:hyper_ui/shared/widget/form/time_picker/timepicker.dart';
 export 'package:hyper_ui/shared/widget/list/list_view.dart';
-export 'package:hyper_ui/shared/widget/shape/dot_center/dot_center.dart';
+export 'package:hyper_ui/shared/widget/shape/dot_center/dot_container.dart';
 export 'package:hyper_ui/shared/widget/typography/heading.dart';
 export 'package:hyper_ui/shared/widget/uncategorized/location_text/location_text.dart';
 export 'package:hyper_ui/shared/widget/uncategorized/q_location_text_header/q_location_text_header.dart';
