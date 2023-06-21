@@ -105,7 +105,7 @@ class ChangePassword1View extends StatefulWidget {
                 height: 80.0,
               ),
               QButton(
-                label: "CHANGE SETTINGS",
+                label: "CHANGE PASSWORD",
                 onPressed: () {},
               ),
             ],
