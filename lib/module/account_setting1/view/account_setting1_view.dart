@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/account_setting1_controller.dart';
+
+import '../data/data_dummy.dart';
 
 class AccountSetting1View extends StatefulWidget {
   const AccountSetting1View({Key? key}) : super(key: key);
@@ -17,7 +19,132 @@ class AccountSetting1View extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [],
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 24.0,
+              ),
+              Text(
+                "Account Settings",
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                "Update your settings like notifications, payments, profile edit etc.",
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: secondaryTextColor,
+                ),
+              ),
+              const SizedBox(
+                height: 24.0,
+              ),
+              ListView.builder(
+                itemCount: AccountData.accountDataList.length,
+                shrinkWrap: true,
+                physics: const ScrollPhysics(),
+                itemBuilder: (BuildContext context, int index) {
+                  var item = AccountData.accountDataList[index];
+                  bool value = true;
+
+                  return Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            item['leading_icon'],
+                            color: index == 9 ? primaryColor : Colors.grey[900],
+                          ),
+                          const SizedBox(
+                            width: 20.0,
+                          ),
+                          if (item['subtitle'] == null)
+                            Text(
+                              item['title'],
+                              style: TextStyle(
+                                fontSize: 16.0,
+                              ),
+                            ),
+                          if (item['subtitle'] != null)
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  item['title'],
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(
+                                  item['subtitle'],
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    color: secondaryTextColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          Spacer(),
+                          Icon(
+                            item['action_icon'],
+                          ),
+                          if (item['action_icon'] == null)
+                            CupertinoSwitch(
+                              value: value,
+                              onChanged: (value) {},
+                            ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      if (index == 5)
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 20,
+                            bottom: 15,
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                "NOTIFICATIONS",
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      if (index == 8)
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 20,
+                            bottom: 15,
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                "MORE",
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),
