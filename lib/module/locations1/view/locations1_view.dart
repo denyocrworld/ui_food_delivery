@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
+import '../widget/AddressName.dart';
+
 class Locations1View extends StatefulWidget {
   const Locations1View({Key? key}) : super(key: key);
 
@@ -88,82 +90,26 @@ class Locations1View extends StatefulWidget {
               const SizedBox(
                 height: 20.0,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.location_on_rounded,
-                    color: Color.fromRGBO(134, 134, 134, 1),
-                  ),
-                  const SizedBox(
-                    width: 17.0,
-                  ),
-                  Text(
-                    "San Fransisco",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ],
+              AddressName(
+                locationName: "San Fransisco",
               ),
               const SizedBox(
                 height: 18.0,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.location_on_rounded,
-                    color: Color.fromRGBO(134, 134, 134, 1),
-                  ),
-                  const SizedBox(
-                    width: 17.0,
-                  ),
-                  Text(
-                    "San Fransisco City Hall",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ],
+              AddressName(
+                locationName: "San Fransisco City Hall",
               ),
               const SizedBox(
                 height: 18.0,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.location_on_rounded,
-                    color: Color.fromRGBO(134, 134, 134, 1),
-                  ),
-                  const SizedBox(
-                    width: 17.0,
-                  ),
-                  Text(
-                    "San Fransisco Zoo",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ],
+              AddressName(
+                locationName: "San Fransisco Zoo",
               ),
               const SizedBox(
                 height: 18.0,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.location_on_rounded,
-                    color: Color.fromRGBO(134, 134, 134, 1),
-                  ),
-                  const SizedBox(
-                    width: 17.0,
-                  ),
-                  Text(
-                    "San Fransisco, Colorado",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                    ),
-                  ),
-                ],
+              AddressName(
+                locationName: "San Fransisco, Colorado",
               ),
             ],
           ),

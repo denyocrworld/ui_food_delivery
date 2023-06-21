@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../../../shared/widget/uncategorized/location_text/location_text.dart';
-
 class Dashboard1View extends StatefulWidget {
   Dashboard1View({Key? key}) : super(key: key);
 
@@ -10,6 +8,7 @@ class Dashboard1View extends StatefulWidget {
     controller.view = this;
 
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         centerTitle: true,
         leading: Container(),
@@ -29,6 +28,68 @@ class Dashboard1View extends StatefulWidget {
           //   width: 20.0,
           // ),
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            child: Container(
+              height: 68,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(14.0),
+                      ),
+                      child: Image.network(
+                        "https://i.ibb.co/fG2NQrx/shopping-cart-icon.png",
+                        width: 34.0,
+                        height: 34.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 14.0,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "VIEW CART",
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            color: secondaryTextColor,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 2.0,
+                        ),
+                        Text(
+                          "Uncle Boy's",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+                    Text(
+                      "1 items",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: secondaryTextColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )),
       ),
       body: SingleChildScrollView(
         child: Container(
