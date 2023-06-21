@@ -18,6 +18,12 @@ class ModuleListController extends State<ModuleListView>
   @override
   Widget build(BuildContext context) => widget.build(context, this);
 
+  String search = "";
+  updateSearch(String text) {
+    search = text;
+    setState(() {});
+  }
+
   List menuList = [
     {
       "label": "Intro1View",
