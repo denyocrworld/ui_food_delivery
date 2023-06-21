@@ -30,41 +30,41 @@ class Login1View extends StatefulWidget {
               const SizedBox(
                 height: 12.0,
               ),
-              Wrap(
-                children: [
-                  Text(
-                    "Enter your Phone number or Email for sign in, Or ",
-                    style: TextStyle(
-                      fontSize: 14.0,
+              RichText(
+                text: TextSpan(
+                  text: '',
+                  style: DefaultTextStyle.of(context).style,
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: "Enter your Phone number or Email for sign in, Or ",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Create new account.",
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      color: primaryColor,
+                    TextSpan(
+                      text: "Create new account.",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: primaryColor,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(
-                height: 20.0,
+                height: 30.0,
               ),
               QTextField(
                 label: "Email",
-                hint: "Your email",
                 validator: Validator.email,
                 suffixIcon: Icons.email,
-                value: "demo@gmail.com",
                 onChanged: (value) {},
               ),
               QTextField(
                 label: "Password",
-                hint: "Your password",
                 obscure: true,
                 validator: Validator.required,
                 suffixIcon: Icons.password,
-                value: "123456",
                 onChanged: (value) {},
               ),
               Center(

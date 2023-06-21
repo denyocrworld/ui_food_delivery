@@ -9,6 +9,7 @@ class QNumberField extends StatefulWidget {
   final String? Function(String?)? validator;
   final Function(String) onChanged;
   final Function(String)? onSubmitted;
+  final IconData? suffixIcon;
 
   final String? pattern;
   final String? locale;
@@ -24,6 +25,7 @@ class QNumberField extends StatefulWidget {
     this.onSubmitted,
     this.pattern,
     this.locale = "en_US",
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -65,9 +67,7 @@ class _QNumberFieldState extends State<QNumberField> {
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           labelText: widget.label,
-          suffixIcon: const Icon(
-            Icons.numbers,
-          ),
+          suffix: widget.suffixIcon != null ? Icon(widget.suffixIcon) : null,
           helperText: widget.helper,
           hintText: widget.hint,
         ),
