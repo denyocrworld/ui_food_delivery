@@ -38,6 +38,34 @@ class ModuleListController extends State<ModuleListView>
       "view": ForgotPassword1View(),
     },
     {
+      "label": "ResetEmail",
+      "view": ResetEmail1View(),
+    },
+    {
+      "label": "Register",
+      "view": Register1View(),
+    },
+    {
+      "label": "LoginByPhoneNumber1View",
+      "view": LoginByPhoneNumber1View(),
+    },
+    {
+      "label": "ConfirmPhoneNumber1View",
+      "view": ConfirmPhoneNumber1View(),
+    },
+    {
+      "label": "TypeLocation1View",
+      "view": TypeLocation1View(),
+    },
+    {
+      "label": "EnterAddress1View",
+      "view": EnterAddress1View(),
+    },
+    {
+      "label": "ConfirmPhoneNumber1View",
+      "view": ConfirmPhoneNumber1View(),
+    },
+    {
       "label": "Dashboard1View",
       "view": Dashboard1View(),
     },
