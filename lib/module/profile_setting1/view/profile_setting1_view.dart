@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
 import '../widget/custom_rounded_textfield.dart';
-import '../widget/custom_textfield.dart';
+import '../widget/custom_underlined_textfield.dart';
 
 class ProfileSetting1View extends StatefulWidget {
   const ProfileSetting1View({Key? key}) : super(key: key);
@@ -77,7 +77,10 @@ class ProfileSetting1View extends StatefulWidget {
               ),
               CustomRoundedTextField(
                 hintText: "Password",
-                suffixIcon: Icon(Icons.remove_red_eye),
+                suffixIcon: Icon(
+                  Icons.visibility_off,
+                  size: 20,
+                ),
                 obscureText: true,
               ),
               const SizedBox(
