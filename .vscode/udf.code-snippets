@@ -103,6 +103,10 @@
     "prefix": "hs6",
     "body": "H6(\ntitle: \"Heading6\",\nsubtitle: \"Subtitle6\",\n),"
   },
+  "q_category_list": {
+    "prefix": "q_category_list",
+    "body": "QCategoryList(\nitems: [\n\"Masakan Nusantara\",\n\"Padang\",\n\"Sumatera\",\n],\n),"
+  },
   "q_location_text": {
     "prefix": "q_location_text",
     "body": "QLocationText(\ntitle: \"Delivery to\",\n),"

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
+import '../../../../shared/widget/typography/category_list/category_list.dart';
+
 class TypographyWidgetView extends StatefulWidget {
   TypographyWidgetView({Key? key}) : super(key: key);
 
@@ -71,6 +73,17 @@ class TypographyWidgetView extends StatefulWidget {
               H6(
                 title: "Heading6",
                 subtitle: "Subtitle6",
+              ),
+              //#END
+
+              Divider(),
+              //#TEMPLATE q_category_list
+              QCategoryList(
+                items: [
+                  "Masakan Nusantara",
+                  "Padang",
+                  "Sumatera",
+                ],
               ),
               //#END
             ],
