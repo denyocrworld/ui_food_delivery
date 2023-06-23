@@ -24,6 +24,7 @@ class FormWidgetView extends StatefulWidget {
                 onPressed: () => Get.to(HUIWidgetDemoView()),
                 child: const Text("HUIWidgetDemoView"),
               ),
+              Divider(),
             ],
           ),
         ),
