@@ -8,6 +8,9 @@ class QRadioFieldWithHeader extends StatefulWidget {
   final String? Function(List<Map<String, dynamic>> item)? validator;
   final Function(dynamic value, String? label) onChanged;
   final String? value;
+  final bool? primary;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? radioListPadding;
 
   const QRadioFieldWithHeader({
     Key? key,
@@ -18,6 +21,9 @@ class QRadioFieldWithHeader extends StatefulWidget {
     this.helper,
     this.value,
     required this.onChanged,
+    this.primary = true,
+    this.padding,
+    this.radioListPadding,
   }) : super(key: key);
 
   @override
@@ -47,9 +53,10 @@ class _QRadioFieldWithHeaderState extends State<QRadioFieldWithHeader> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-        bottom: 12.0,
-      ),
+      margin: widget.padding ??
+          const EdgeInsets.only(
+            bottom: 12.0,
+          ),
       child: Column(
         children: [
           Row(
@@ -96,41 +103,46 @@ class _QRadioFieldWithHeaderState extends State<QRadioFieldWithHeader> {
                   focusedBorder: InputBorder.none,
                   disabledBorder: InputBorder.none,
                   focusedErrorBorder: InputBorder.none,
+                  // contentPadding: EdgeInsets.zero,
                 ),
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    var item = items[index];
-                    return Container(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            width: 1.0,
-                            color: Color(0xfff0f0f0),
+                child: Container(
+                  child: ListView.builder(
+                    primary: widget.primary,
+                    shrinkWrap: true,
+                    padding: widget.radioListPadding,
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      var item = items[index];
+                      return Container(
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              width: 1.0,
+                              color: Color(0xfff0f0f0),
+                            ),
                           ),
                         ),
-                      ),
-                      child: RadioListTile(
-                        title: Text("${item["label"]}"),
-                        groupValue: true,
-                        value: item["checked"] ?? false,
-                        onChanged: (val) {
-                          setAllItemsToFalse();
-                          bool newValue = val ? false : true;
-                          items[index]["checked"] = newValue;
-                          field.didChange(true);
-                          setState(() {});
+                        child: RadioListTile(
+                          title: Text("${item["label"]}"),
+                          groupValue: true,
+                          value: item["checked"] ?? false,
+                          activeColor: Colors.green,
+                          onChanged: (val) {
+                            setAllItemsToFalse();
+                            bool newValue = val ? false : true;
+                            items[index]["checked"] = newValue;
+                            field.didChange(true);
+                            setState(() {});
 
-                          String? label = items[index]["label"];
-                          int foundIndex = items
-                              .indexWhere((item) => item["label"] == label);
-                          dynamic value = items[foundIndex]["value"];
-                          widget.onChanged(value, label);
-                        },
-                      ),
-                    );
-                  },
+                            String? label = items[index]["label"];
+                            int foundIndex = items.indexWhere((item) => item["label"] == label);
+                            dynamic value = items[foundIndex]["value"];
+                            widget.onChanged(value, label);
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
               );
             },

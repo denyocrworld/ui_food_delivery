@@ -33,35 +33,49 @@ class _QCounterPickerState extends State<QCounterPicker> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        InkWell(
-          onTap: () => decrement(),
-          child: CircleAvatar(
-            backgroundColor: Color(0xfff8f8f8),
-            child: Icon(
-              Icons.remove,
-              color: Colors.grey[800],
+        Material(
+          color: Color(0xfff8f8f8),
+          borderRadius: BorderRadius.circular(20),
+          child: InkWell(
+            onTap: () => decrement(),
+            borderRadius: BorderRadius.circular(20),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.remove,
+                color: Colors.grey[800],
+              ),
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 12.0,
-          ),
-          child: Text(
-            "$counter",
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+        ConstrainedBox(
+          constraints: BoxConstraints(minWidth: 80),
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 12.0,
+            ),
+            child: Text(
+              "$counter",
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
         ),
-        InkWell(
-          onTap: () => increment(),
-          child: CircleAvatar(
-            backgroundColor: Color(0xfff8f8f8),
-            child: Icon(
-              Icons.add,
-              color: Colors.grey[800],
+        Material(
+          color: Color(0xfff8f8f8),
+          borderRadius: BorderRadius.circular(20),
+          child: InkWell(
+            onTap: () => increment(),
+            borderRadius: BorderRadius.circular(20),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.add,
+                color: Colors.grey[800],
+              ),
             ),
           ),
         ),
