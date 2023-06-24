@@ -7,35 +7,37 @@ class QOutlineIconButton extends StatelessWidget {
   final IconData icon;
   final Function onPressed;
   final double? width;
+  final Color? color;
   QOutlineIconButton({
     Key? key,
     required this.label,
     required this.icon,
     required this.onPressed,
     this.width,
+    this.color,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width ?? MediaQuery.of(context).size.width,
-      height: 48,
+      height: 42,
       child: OutlinedButton.icon(
         icon: Icon(
           icon,
-          color: Color(0xff434d48),
+          color: color ?? Color(0xff434d48),
         ),
         label: Text(
           label,
           style: TextStyle(
             fontSize: 16.0,
-            color: Color(0xff434d48),
+            color: color ?? Color(0xff434d48),
           ),
         ),
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.green,
           side: BorderSide(
-            color: Color(0xffd9dbd9),
+            color: color ?? Color(0xffd9dbd9),
           ),
         ),
         onPressed: () => onPressed(),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/reset_email1_controller.dart';
 
 class ResetEmail1View extends StatefulWidget {
   const ResetEmail1View({Key? key}) : super(key: key);
@@ -10,14 +9,57 @@ class ResetEmail1View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ResetEmail1"),
+        title: const Text("Reset Email"),
+        centerTitle: true,
         actions: const [],
+        elevation: 0.0,
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
-            children: const [],
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Reset Email",
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              RichText(
+                text: TextSpan(
+                  text: '',
+                  style: DefaultTextStyle.of(context).style,
+                  children: <TextSpan>[
+                    TextSpan(
+                      text:
+                          "We have sent a instructions email to demo@gmail.com. ",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "Having problem?",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              QButton(
+                label: "Send Again",
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
       ),
