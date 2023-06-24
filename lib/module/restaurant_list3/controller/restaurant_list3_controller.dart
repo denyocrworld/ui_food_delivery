@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/state_util.dart';
-import '../view/product_detail1_view.dart';
 
-class ProductDetail1Controller extends State<ProductDetail1View>
+import '../view/restaurant_list3_view.dart';
+
+class RestaurantList3Controller extends State<RestaurantList3View>
     implements MvcController {
-  static late ProductDetail1Controller instance;
-  late ProductDetail1View view;
+  static late RestaurantList3Controller instance;
+  late RestaurantList3View view;
 
   @override
   void initState() {
@@ -18,7 +19,8 @@ class ProductDetail1Controller extends State<ProductDetail1View>
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
-  String selectedItem = "";
+
+  List category = ["Burgers", "Brunch", "Breakfast", "Dinner", "Snack"];
 
   List products = [
     {
@@ -136,84 +138,6 @@ class ProductDetail1Controller extends State<ProductDetail1View>
       "photo":
           "https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "product_name": "Paradox Tea",
-      "price": 56,
-      "category": "Drink",
-      "description":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-  ];
-
-  List<String> dataMenu = ['Seafood', 'Appetizers', 'Dim Sum', 'Beef & Lamb'];
-
-  List productPopular = [
-    {
-      "id": 10,
-      "photo":
-          "https://images.unsplash.com/photo-1622240506921-042a4e71c172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "product_name": "Puncak Coffe",
-      "price": 56.0,
-      "category": "Drink",
-      "description":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      "id": 11,
-      "photo":
-          "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "product_name": "Silvana Tea",
-      "price": 56.0,
-      "category": "Drink",
-      "description":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      "id": 12,
-      "photo":
-          "https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "product_name": "Paradox Tea",
-      "price": 56.0,
-      "category": "Drink",
-      "description":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-  ];
-
-  List productSeaFood = [
-    {
-      "id": 8,
-      "photo":
-          "https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "product_name": "Orange Juice",
-      "price": 56,
-      "category": "Drink",
-      "description":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      "id": 9,
-      "photo":
-          "https://images.unsplash.com/photo-1604085792782-8d92f276d7d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-      "product_name": "Avocado Juice",
-      "price": 56,
-      "category": "Drink",
-      "description":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      "id": 10,
-      "photo":
-          "https://images.unsplash.com/photo-1622240506921-042a4e71c172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "product_name": "Puncak Coffe",
-      "price": 56,
-      "category": "Drink",
-      "description":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      "id": 11,
-      "photo":
-          "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "product_name": "Silvana Tea",
       "price": 56,
       "category": "Drink",
       "description":

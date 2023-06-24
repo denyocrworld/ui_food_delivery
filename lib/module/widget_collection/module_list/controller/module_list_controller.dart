@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
+import '../../../restaurant_list3/view/restaurant_list3_view.dart';
+
 class ModuleListController extends State<ModuleListView>
     implements MvcController {
   static late ModuleListController instance;
@@ -88,6 +90,10 @@ class ModuleListController extends State<ModuleListView>
     {
       "label": "RestaurantList2View",
       "view": RestaurantList2View(),
+    },
+    {
+      "label": "RestaurantList3View",
+      "view": RestaurantList3View(),
     },
     {
       "label": "ProductDetail1View",
