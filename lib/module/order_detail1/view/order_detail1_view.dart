@@ -55,7 +55,7 @@ class OrderDetail1View extends StatefulWidget {
                             padding: const EdgeInsets.all(8.0),
                             decoration: BoxDecoration(
                               border: Border.all(
-                                width: 0.5,
+                                width: 0.2,
                                 color: Color.fromRGBO(134, 134, 134, 1),
                               ),
                               borderRadius: BorderRadius.all(
