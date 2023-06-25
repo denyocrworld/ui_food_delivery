@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hyper_ui/state_util.dart';
 import '../view/type_location1_view.dart';
 
-class TypeLocation1Controller extends State<TypeLocation1View> implements MvcController {
+class TypeLocation1Controller extends State<TypeLocation1View>
+    implements MvcController {
   static late TypeLocation1Controller instance;
   late TypeLocation1View view;
 
@@ -17,4 +18,19 @@ class TypeLocation1Controller extends State<TypeLocation1View> implements MvcCon
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
+
+  List<Map> suggestionsList = [
+    {
+      "title": "San Fransisco",
+      "subtitle": "California",
+    },
+    {
+      "title": "San Fransisco City Hall",
+      "subtitle": "California",
+    },
+    {
+      "title": "San Fransisco, CA",
+      "subtitle": "Cordoba",
+    },
+  ];
 }

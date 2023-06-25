@@ -19,7 +19,7 @@ class RestaurantList2Controller extends State<RestaurantList2View>
   @override
   Widget build(BuildContext context) => widget.build(context, this);
 
-  List category = ["Burgers", "Brunch", "Breakfast", "Dinner", "Snack"];
+  List category = ["BURGERS", "BRUNCH", "BREAKFAST", "DINNER", "SNACK"];
 
   List products = [
     {

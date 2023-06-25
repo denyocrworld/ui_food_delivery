@@ -15,9 +15,8 @@ class RestaurantList2View extends StatefulWidget {
             child: Column(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height,
+                  height: MediaQuery.of(context).size.height * 3.3,
                   decoration: const BoxDecoration(
-                    color: Colors.orange,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         16.0,
@@ -127,11 +126,10 @@ class RestaurantList2View extends StatefulWidget {
                         ),
                       ),
                       Positioned(
-                        top: 400,
+                        top: 280,
                         left: 0,
                         right: 0,
                         child: Container(
-                          height: MediaQuery.of(context).size.height,
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           decoration: const BoxDecoration(
                             color: Colors.white,
@@ -184,7 +182,7 @@ class RestaurantList2View extends StatefulWidget {
                                               color: selected
                                                   ? primaryColor
                                                   : Colors.grey,
-                                              fontSize: 11.0,
+                                              fontSize: 12.0,
                                             ),
                                           ),
                                         ),
@@ -202,8 +200,8 @@ class RestaurantList2View extends StatefulWidget {
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                   childAspectRatio: 1 / 2,
                                   crossAxisCount: 2,
-                                  mainAxisSpacing: 6,
-                                  crossAxisSpacing: 6,
+                                  mainAxisSpacing: 15,
+                                  crossAxisSpacing: 15,
                                 ),
                                 itemCount: controller.products.length,
                                 shrinkWrap: true,
