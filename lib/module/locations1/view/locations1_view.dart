@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../widget/AddressName.dart';
-
 class Locations1View extends StatefulWidget {
   const Locations1View({Key? key}) : super(key: key);
 
@@ -11,34 +9,14 @@ class Locations1View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Locations1"),
+        title: const Text("Search location"),
         actions: const [],
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Icon(Icons.chevron_left),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Payment Method",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 41.0,
-              ),
               Container(
                 padding: const EdgeInsets.symmetric(
                   vertical: 6.0,
@@ -82,33 +60,31 @@ class Locations1View extends StatefulWidget {
                 height: 24.0,
               ),
               H6(
-                title: "RECENT ADDRESS",
-                subtitle: "CLEAR ALL",
-                titleColor: secondaryTextColor,
-                subtitleColor: Colors.black,
+                title: "Recent Address",
+                subtitle: "Clear All",
               ),
               const SizedBox(
                 height: 20.0,
               ),
-              AddressName(
+              Location1AddressName(
                 locationName: "San Fransisco",
               ),
               const SizedBox(
                 height: 18.0,
               ),
-              AddressName(
+              Location1AddressName(
                 locationName: "San Fransisco City Hall",
               ),
               const SizedBox(
                 height: 18.0,
               ),
-              AddressName(
+              Location1AddressName(
                 locationName: "San Fransisco Zoo",
               ),
               const SizedBox(
                 height: 18.0,
               ),
-              AddressName(
+              Location1AddressName(
                 locationName: "San Fransisco, Colorado",
               ),
             ],

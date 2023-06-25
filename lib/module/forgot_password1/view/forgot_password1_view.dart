@@ -20,13 +20,7 @@ class ForgotPassword1View extends StatefulWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Forgot Password",
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              H2(title: "Forgot Password"),
               const SizedBox(
                 height: 20.0,
               ),

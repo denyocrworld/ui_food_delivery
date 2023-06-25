@@ -9,35 +9,17 @@ class PaymentMethod1View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("PaymentMethod1"),
+        title: const Text(
+          "Payment Method",
+        ),
         actions: const [],
       ),
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Icon(Icons.chevron_left),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Payment Method",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 117.0,
-              ),
               Image.network(
                 "https://i.ibb.co/G2C1mbz/greencard-illustration-removebg.png",
                 width: 120.0,

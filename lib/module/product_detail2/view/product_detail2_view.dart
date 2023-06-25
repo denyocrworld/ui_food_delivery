@@ -1,10 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:hyper_ui/core.dart';
-
-import '../widget/card_detail2.dart';
-import '../widget/cart_product_detail1.dart';
 
 class ProductDetail2View extends StatefulWidget {
   const ProductDetail2View({Key? key}) : super(key: key);
@@ -15,10 +11,6 @@ class ProductDetail2View extends StatefulWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          size: 24.0,
-        ),
         actions: const [
           const Icon(
             Icons.search,
@@ -40,51 +32,12 @@ class ProductDetail2View extends StatefulWidget {
               const SizedBox(
                 height: 14.0,
               ),
-              Row(
-                children: [
-                  Text(
-                    "\$\$",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  DotContainer(),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  Text(
-                    "Chinese",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  DotContainer(),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  Text(
-                    "American Deshi food",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  DotContainer(),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  Text(
-                    "Deshi food",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey,
-                    ),
-                  ),
+              QCategoryList(
+                items: [
+                  "\$\$",
+                  "Chinese",
+                  "American Deshi food",
+                  "Deshi food",
                 ],
               ),
               const SizedBox(
@@ -221,7 +174,7 @@ class ProductDetail2View extends StatefulWidget {
                   clipBehavior: Clip.none,
                   itemBuilder: (context, index) {
                     var item = controller.products[index];
-                    return CardProductDetail1(
+                    return ProductVerticalCard2(
                       image: item['photo'],
                       title: item['product_name'],
                       subtitle: "Chinese",
@@ -291,7 +244,7 @@ class ProductDetail2View extends StatefulWidget {
                   clipBehavior: Clip.none,
                   itemBuilder: (context, index) {
                     var item = controller.productPopular[index];
-                    return CardDetail2(
+                    return ProductRowCard(
                       image: item['photo'],
                       title: item['product_name'],
                       subTitle:
@@ -320,7 +273,7 @@ class ProductDetail2View extends StatefulWidget {
                   clipBehavior: Clip.none,
                   itemBuilder: (context, index) {
                     var item = controller.productSeaFood[index];
-                    return CardDetail2(
+                    return ProductRowCard(
                       image: item['photo'],
                       title: item['product_name'],
                       subTitle:

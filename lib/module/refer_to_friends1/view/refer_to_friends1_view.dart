@@ -9,33 +9,13 @@ class ReferToFriends1View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ReferToFriends1"),
-        actions: const [],
+        title: Text("Refer to Friends"),
+        elevation: 0.0,
       ),
       body: Container(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Row(
-              children: [
-                Icon(Icons.chevron_left),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Refer to Friends",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 54.0,
-            ),
             Image.network(
               "https://i.ibb.co/GJkh0KD/greengift-illustration-removebg-preview.png",
               width: 120.0,

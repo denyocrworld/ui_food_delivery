@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hyper_ui/core.dart';
 
-import '../../../shared/theme/theme_config.dart';
-import '../../../shared/widget/shape/dot_center/dot_container.dart';
-
-class CardDetail2 extends StatelessWidget {
+class ProductRowCard extends StatelessWidget {
   final String image;
   final String title;
   final String subTitle;
   final String category;
   final double price;
-  EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? margin;
 
-  CardDetail2({
+  ProductRowCard({
     Key? key,
     required this.image,
     required this.title,

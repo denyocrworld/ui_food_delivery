@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/theme/theme_config.dart';
+import '../../../theme/theme_config.dart';
 
 class CustomUnderlinedTextField extends StatelessWidget {
   final String labelText;

@@ -9,31 +9,26 @@ class TypeLocation1View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("TypeLocation1"),
         actions: const [],
+        elevation: 0.0,
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: const Icon(
+            Icons.clear,
+            size: 24.0,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.clear,
-                    size: 30,
-                  ),
-                ],
-              ),
               const SizedBox(
                 height: 24.0,
               ),
-              Text(
-                "Find restaurants near you",
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              H2(
+                title: "Find restaurants near you",
               ),
               const SizedBox(
                 height: 20.0,

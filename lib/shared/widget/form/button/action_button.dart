@@ -15,7 +15,7 @@ class QActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const padding = 20.0;
-    final height = MediaQuery.of(context).size.height * 0.07;
+    final height = 42;
     return Container(
       padding: const EdgeInsets.all(padding),
       color: Colors.white,

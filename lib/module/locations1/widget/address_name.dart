@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class AddressName extends StatelessWidget {
+class Location1AddressName extends StatelessWidget {
   final String locationName;
 
-  const AddressName({
+  const Location1AddressName({
     required this.locationName,
     super.key,
   });

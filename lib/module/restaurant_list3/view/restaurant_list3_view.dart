@@ -11,7 +11,7 @@ class RestaurantList3View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("AddPaymentMethod1"),
+        title: const Text("RestaurantList"),
         actions: const [],
       ),
       body: SingleChildScrollView(

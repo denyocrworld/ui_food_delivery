@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomRoundedTextField extends StatelessWidget {
+class QAlternativeRoundedTextField extends StatelessWidget {
   final String hintText;
   final Icon? suffixIcon;
   final bool? obscureText;
-  const CustomRoundedTextField({
+  const QAlternativeRoundedTextField({
     super.key,
     required this.hintText,
     required this.suffixIcon,

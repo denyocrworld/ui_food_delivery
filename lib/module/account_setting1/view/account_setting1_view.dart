@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../data/data_dummy.dart';
-
 class AccountSetting1View extends StatefulWidget {
   const AccountSetting1View({Key? key}) : super(key: key);
 
@@ -12,28 +10,17 @@ class AccountSetting1View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("AccountSetting1"),
+        title: const Text(
+          "Account Settings",
+        ),
         actions: const [],
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 24.0,
-              ),
-              Text(
-                "Account Settings",
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
               Text(
                 "Update your settings like notifications, payments, profile edit etc.",
                 style: TextStyle(

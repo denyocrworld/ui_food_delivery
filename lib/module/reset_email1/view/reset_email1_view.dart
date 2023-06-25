@@ -20,12 +20,8 @@ class ResetEmail1View extends StatefulWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Reset Email",
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              H2(
+                title: "Reset Email",
               ),
               const SizedBox(
                 height: 20.0,

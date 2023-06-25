@@ -116,6 +116,16 @@ class ModuleListView extends StatefulWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
+                              "#${index + 1}",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 12.0,
+                            ),
+                            Text(
                               item["label"],
                               style: TextStyle(
                                 fontSize: 14.0,

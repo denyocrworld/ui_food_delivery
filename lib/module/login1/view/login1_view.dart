@@ -20,13 +20,7 @@ class Login1View extends StatefulWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Welcome to",
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              H1(title: "Welcome to"),
               const SizedBox(
                 height: 12.0,
               ),

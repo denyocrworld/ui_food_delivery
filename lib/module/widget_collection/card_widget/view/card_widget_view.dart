@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:latlong2/latlong.dart';
 
 class CardWidgetView extends StatefulWidget {
   CardWidgetView({Key? key}) : super(key: key);
@@ -19,6 +18,7 @@ class CardWidgetView extends StatefulWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Divider(),
               "q_product_card".snippet,
               //#TEMPLATE q_product_card
               ProductCard(
@@ -29,6 +29,15 @@ class CardWidgetView extends StatefulWidget {
                 rating: 4.5,
                 time: "25min",
                 delivery: "Free",
+              ),
+              //#END
+              "q_product_card2".snippet,
+              //#TEMPLATE q_product_card2
+              ProductCard2(
+                image:
+                    "https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
+                title: "Miracle Bread",
+                category: "Bread",
               ),
               //#END
               "q_product_rating_card".snippet,
@@ -60,6 +69,18 @@ class CardWidgetView extends StatefulWidget {
                 time: "30min",
               ),
               //#END
+              "q_product_vertical_card2".snippet,
+              //#TEMPLATE q_product_vertical_card2
+              ProductVerticalCard2(
+                image:
+                    "https://images.unsplash.com/photo-1613844237701-8f3664fc2eff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFNPVVB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+                title: "Soft Drink",
+                subtitle: "Chinese",
+                margin: const EdgeInsets.only(
+                  right: 10.0,
+                ),
+              ),
+              //#END
               Divider(),
               "q_promotion_card".snippet,
               //#TEMPLATE q_promotion_card
@@ -69,94 +90,6 @@ class CardWidgetView extends StatefulWidget {
                     r"You've to order at least $10 for using free delivery for I month.",
               ),
               //#END
-              Builder(
-                builder: (context) {
-                  List<Marker> allMarkers = [
-                    Marker(
-                      point: LatLng(
-                        -6.1754234,
-                        106.827224,
-                      ),
-                      builder: (context) => const Icon(
-                        Icons.pin_drop,
-                        color: Colors.red,
-                        size: 24,
-                      ),
-                    ),
-                    Marker(
-                      point: LatLng(
-                        -6.1754234,
-                        106.828524,
-                      ),
-                      builder: (context) => const Icon(
-                        Icons.pin_drop,
-                        color: Colors.green,
-                        size: 24,
-                      ),
-                    ),
-                    Marker(
-                      point: LatLng(
-                        -6.1767234,
-                        106.828524,
-                      ),
-                      builder: (context) => const Icon(
-                        Icons.pin_drop,
-                        color: Colors.blue,
-                        size: 24,
-                      ),
-                    ),
-                    Marker(
-                      point: LatLng(
-                        -6.1767234,
-                        106.827224,
-                      ),
-                      builder: (context) => const Icon(
-                        Icons.pin_drop,
-                        color: Colors.orange,
-                        size: 24,
-                      ),
-                    ),
-                  ];
-
-                  List<LatLng> polygonPoints =
-                      allMarkers.map((marker) => marker.point).toList();
-
-                  LatLngBounds bounds = LatLngBounds.fromPoints(polygonPoints);
-
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    child: FlutterMap(
-                      options: MapOptions(
-                        bounds: bounds,
-                        boundsOptions:
-                            FitBoundsOptions(padding: EdgeInsets.all(50.0)),
-                        interactiveFlags:
-                            InteractiveFlag.all - InteractiveFlag.rotate,
-                      ),
-                      children: [
-                        TileLayer(
-                          urlTemplate:
-                              'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                          userAgentPackageName:
-                              'dev.fleaflet.flutter_map.example',
-                        ),
-                        PolygonLayer(
-                          polygons: [
-                            Polygon(
-                              points: polygonPoints,
-                              color: Colors.black.withOpacity(0.6),
-                              isFilled: true,
-                            ),
-                          ],
-                        ),
-                        MarkerLayer(
-                          markers: allMarkers,
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
             ],
           ),
         ),

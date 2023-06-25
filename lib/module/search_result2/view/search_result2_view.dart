@@ -15,31 +15,15 @@ class SearchResult2View extends StatefulWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "We have found 80 results of\nBurger's",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Spacer(),
-                  Text(
-                    "Search Again",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: primaryColor,
-                    ),
-                  ),
-                ],
+              H6(
+                title: "We have found 80 results of\nBurger's",
+                subtitle: "Search again",
               ),
               const SizedBox(
-                height: 30.0,
+                height: 12.0,
               ),
               StaggeredGrid.count(
                 crossAxisCount: 2,

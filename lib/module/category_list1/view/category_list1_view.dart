@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/module/category_list1/data/category_list_data.dart';
-import '../controller/category_list1_controller.dart';
 
 class CategoryList1View extends StatefulWidget {
   const CategoryList1View({Key? key}) : super(key: key);
@@ -17,42 +15,20 @@ class CategoryList1View extends StatefulWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 28.0,
+              QTextField(
+                label: "Search",
+                validator: Validator.required,
+                onChanged: (value) {},
               ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 9.0,
-                  ),
-                  Icon(Icons.search, size: 24),
-                  const SizedBox(
-                    width: 23.0,
-                  ),
-                  Text(
-                    "Search",
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+              H5(
+                title: "Top Categories",
               ),
               const SizedBox(
-                height: 42.0,
-              ),
-              Text(
-                "Top Categories",
-                style: TextStyle(
-                  fontSize: 16.0,
-                ),
-              ),
-              const SizedBox(
-                height: 20.0,
+                height: 8.0,
               ),
               GridView.builder(
                 padding: EdgeInsets.zero,

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../widget/card_detail2.dart';
-import '../widget/cart_product_detail1.dart';
-
 class ProductDetail1View extends StatefulWidget {
   ProductDetail1View({Key? key}) : super(key: key);
 
@@ -11,9 +8,28 @@ class ProductDetail1View extends StatefulWidget {
     controller.view = this;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text("ProductDetail1"),
-        actions: [],
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: BackButton(
+          color: Colors.white,
+        ),
+        actions: [
+          Icon(
+            Icons.ios_share_sharp,
+            size: 26.0,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 10.0,
+          ),
+          Icon(
+            Icons.search,
+            size: 26.0,
+            color: Colors.white,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -31,93 +47,35 @@ class ProductDetail1View extends StatefulWidget {
                       "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=710&q=80",
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.arrow_back_ios,
-                          size: 24.0,
-                          color: Colors.white,
-                        ),
-                        Spacer(),
-                        Icon(
-                          Icons.ios_share_sharp,
-                          size: 26.0,
-                          color: Colors.white,
-                        ),
-                        const SizedBox(
-                          width: 10.0,
-                        ),
-                        const Icon(
-                          Icons.search,
-                          size: 26.0,
-                          color: Colors.white,
-                        ),
-                      ],
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 280,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.2),
                     ),
                   ),
                 ],
               ),
               Container(
                 height: MediaQuery.of(context).size.height * 2.1,
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   children: [
                     H3(
                       title: "Mayfield Bakery & Cafe",
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 14.0,
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          "\$\$",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        DotContainer(),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        Text(
-                          "Chinese",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        DotContainer(),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        Text(
-                          "American Deshi food",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        DotContainer(),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        Text(
-                          "Deshi food",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.grey,
-                          ),
-                        ),
+                    QCategoryList(
+                      items: [
+                        "\$\$",
+                        "Chinese",
+                        "American Deshi food",
+                        "Deshi food",
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 14.0,
                     ),
                     Row(
@@ -128,11 +86,11 @@ class ProductDetail1View extends StatefulWidget {
                             fontSize: 12.0,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 9.0,
                         ),
                         Icon(Icons.star, size: 24.0, color: primaryColor),
-                        const SizedBox(
+                        SizedBox(
                           width: 9.0,
                         ),
                         Text(
@@ -143,7 +101,7 @@ class ProductDetail1View extends StatefulWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 14.0,
                     ),
                     Row(
@@ -153,7 +111,7 @@ class ProductDetail1View extends StatefulWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Icon(Icons.money, size: 24.0, color: primaryColor),
-                            const SizedBox(
+                            SizedBox(
                               width: 6.0,
                             ),
                             Column(
@@ -176,7 +134,7 @@ class ProductDetail1View extends StatefulWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 20.0,
                         ),
                         Row(
@@ -184,7 +142,7 @@ class ProductDetail1View extends StatefulWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Icon(Icons.timer, size: 24.0, color: primaryColor),
-                            const SizedBox(
+                            SizedBox(
                               width: 6.0,
                             ),
                             Column(
@@ -218,7 +176,7 @@ class ProductDetail1View extends StatefulWidget {
                               child: OutlinedButton(
                                 style: OutlinedButton.styleFrom(
                                   foregroundColor: Colors.green,
-                                  side: const BorderSide(
+                                  side: BorderSide(
                                     color: Colors.green,
                                   ),
                                   shape: RoundedRectangleBorder(
@@ -226,20 +184,20 @@ class ProductDetail1View extends StatefulWidget {
                                   ),
                                 ),
                                 onPressed: () {},
-                                child: const Text("Take Away"),
+                                child: Text("Take Away"),
                               ),
                             )
                           ],
                         ),
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 34.0,
                     ),
                     H4(
                       title: "Featured Items",
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 18.0,
                     ),
                     SizedBox(
@@ -251,18 +209,18 @@ class ProductDetail1View extends StatefulWidget {
                         clipBehavior: Clip.none,
                         itemBuilder: (context, index) {
                           var item = controller.products[index];
-                          return CardProductDetail1(
+                          return ProductVerticalCard2(
                             image: item['photo'],
                             title: item['product_name'],
                             subtitle: "Chinese",
-                            margin: const EdgeInsets.only(
+                            margin: EdgeInsets.only(
                               right: 10.0,
                             ),
                           );
                         },
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 34.0,
                     ),
                     SingleChildScrollView(
@@ -276,11 +234,11 @@ class ProductDetail1View extends StatefulWidget {
                             bool selected = index == 1;
 
                             return Container(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                 horizontal: 12.0,
                                 vertical: 8.0,
                               ),
-                              margin: const EdgeInsets.only(right: 10.0),
+                              margin: EdgeInsets.only(right: 10.0),
                               child: InkWell(
                                 onTap: () {
                                   controller.selectedItem = item;
@@ -304,13 +262,13 @@ class ProductDetail1View extends StatefulWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 28.0,
                     ),
                     H5(
                       title: "Most Populars",
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 24.0,
                     ),
                     Container(
@@ -322,14 +280,14 @@ class ProductDetail1View extends StatefulWidget {
                         clipBehavior: Clip.none,
                         itemBuilder: (context, index) {
                           var item = controller.productPopular[index];
-                          return CardDetail2(
+                          return ProductRowCard(
                             image: item['photo'],
                             title: item['product_name'],
                             subTitle:
                                 "Shortbread, chocolate turtle cookies, and red velvet.",
                             category: item['category'],
                             price: item['price'],
-                            margin: const EdgeInsets.only(
+                            margin: EdgeInsets.only(
                               bottom: 10.0,
                             ),
                           );
@@ -339,7 +297,7 @@ class ProductDetail1View extends StatefulWidget {
                     H5(
                       title: "Sea Foods",
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 24.0,
                     ),
                     Container(
@@ -351,14 +309,14 @@ class ProductDetail1View extends StatefulWidget {
                         clipBehavior: Clip.none,
                         itemBuilder: (context, index) {
                           var item = controller.productSeaFood[index];
-                          return CardDetail2(
+                          return ProductRowCard(
                             image: item['photo'],
                             title: item['product_name'],
                             subTitle:
                                 "Shortbread, chocolate turtle cookies, and red velvet.",
                             category: item['category'],
                             price: 7.5,
-                            margin: const EdgeInsets.only(
+                            margin: EdgeInsets.only(
                               bottom: 10.0,
                             ),
                           );

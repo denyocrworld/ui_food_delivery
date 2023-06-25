@@ -20,12 +20,9 @@ class LoginByPhoneNumber1View extends StatefulWidget {
         child: Column(
           children: [
             Center(
-              child: Text(
-                "Get started with AwesomeApp",
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: H4(
+                title: "Get started with AwesomeApp",
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(

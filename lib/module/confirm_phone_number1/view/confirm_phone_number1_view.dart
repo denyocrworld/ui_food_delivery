@@ -20,13 +20,7 @@ class ConfirmPhoneNumber1View extends StatefulWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Verify phone number",
-                  style: TextStyle(
-                    fontSize: 32.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                H2(title: "Verify phone number"),
                 SizedBox(
                   height: 12.0,
                 ),

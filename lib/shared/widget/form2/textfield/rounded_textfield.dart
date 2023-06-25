@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomRoundedTextField extends StatelessWidget {
+class ProfileSetting1RoundedTextField extends StatelessWidget {
   final String hintText;
   final Icon? suffixIcon;
   final bool? obscureText;
-  const CustomRoundedTextField({
+  const ProfileSetting1RoundedTextField({
     super.key,
     required this.hintText,
     required this.suffixIcon,

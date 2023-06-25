@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../widget/custom_rounded_textfield.dart';
-import '../widget/custom_underlined_textfield.dart';
-
 class ProfileSetting1View extends StatefulWidget {
   const ProfileSetting1View({Key? key}) : super(key: key);
 
@@ -12,69 +9,49 @@ class ProfileSetting1View extends StatefulWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ProfileSetting1"),
+        title: const Text("Profile Settings"),
         actions: const [],
       ),
       body: Container(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Row(
-              children: [
-                Icon(Icons.chevron_left),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Profile Settings",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 40.0,
-            ),
-            CustomUnderlinedTextField(
+            QAlternativeTextField(
               labelText: "FULL NAME",
               initialValue: "Nawaf Azim",
             ),
             const SizedBox(
               height: 20.0,
             ),
-            CustomUnderlinedTextField(
+            QAlternativeTextField(
               labelText: "EMAIL ADDRESS",
               initialValue: "Nawafazim@icloud.com",
             ),
             const SizedBox(
               height: 20.0,
             ),
-            CustomUnderlinedTextField(
+            QAlternativeTextField(
               labelText: "PHONE NUMBER",
               initialValue: "+1501333982",
             ),
             const SizedBox(
               height: 63.0,
             ),
-            CustomRoundedTextField(
+            QAlternativeRoundedTextField(
               hintText: "Full Name",
               suffixIcon: null,
             ),
             const SizedBox(
               height: 14.0,
             ),
-            CustomRoundedTextField(
+            QAlternativeRoundedTextField(
               hintText: "Email Address",
               suffixIcon: null,
             ),
             const SizedBox(
               height: 14.0,
             ),
-            CustomRoundedTextField(
+            QAlternativeRoundedTextField(
               hintText: "Password",
               suffixIcon: Icon(
                 Icons.visibility_off,

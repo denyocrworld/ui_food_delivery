@@ -99,7 +99,7 @@ class RestaurantList2View extends StatefulWidget {
                                         backgroundColor: Colors.white,
                                         radius: 28.0,
                                         child: Icon(
-                                          Icons.arrow_back_ios,
+                                          Icons.arrow_back,
                                           color: Colors.black,
                                           size: 28.0,
                                         ),

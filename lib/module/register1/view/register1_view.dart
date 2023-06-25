@@ -16,12 +16,8 @@ class Register1View extends StatefulWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Create Account",
-                  style: TextStyle(
-                    fontSize: 32.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                H1(
+                  title: "Create Account",
                 ),
                 SizedBox(
                   height: 12.0,

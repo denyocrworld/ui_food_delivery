@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../data/data_dummy.dart';
-
 class OrderList1View extends StatefulWidget {
   const OrderList1View({Key? key}) : super(key: key);
 
@@ -13,28 +11,15 @@ class OrderList1View extends StatefulWidget {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0.0,
-        title: Text("OrderList1"),
+        title: Text(
+          "Your Orders",
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const SizedBox(
-                height: 16.0,
-              ),
-              Center(
-                child: Text(
-                  "Your Orders",
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 41.0,
-              ),
               H6(
                 title: "UPCOMING ORDERS",
                 subtitle: "CLEAR ALL",

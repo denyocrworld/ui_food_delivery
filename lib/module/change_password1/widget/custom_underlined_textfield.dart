@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../shared/theme/theme_config.dart';
 
-class CustomUnderlinedTextField extends StatelessWidget {
+class QAlternativeTextField extends StatelessWidget {
   final String labelText;
   final String initialValue;
   final bool? obscureText;
   final bool? readOnly;
   final Icon? suffixIcon;
-  const CustomUnderlinedTextField({
+  const QAlternativeTextField({
     super.key,
     required this.labelText,
     required this.initialValue,

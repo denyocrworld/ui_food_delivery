@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hyper_ui/core.dart';
 
-import '../../../shared/widget/shape/dot_center/dot_container.dart';
-
-class CardProductDetail1 extends StatelessWidget {
+class ProductVerticalCard2 extends StatelessWidget {
   final String image;
   final String title;
   final String subtitle;
-  EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? margin;
 
-  CardProductDetail1({
+  ProductVerticalCard2({
     Key? key,
     required this.image,
     required this.title,

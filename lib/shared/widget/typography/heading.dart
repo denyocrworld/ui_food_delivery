@@ -11,6 +11,7 @@ class HeadingWidget extends StatelessWidget {
   final Function? onPressed;
   final Color? titleColor;
   final Color? subtitleColor;
+  final TextAlign? textAlign;
   const HeadingWidget({
     Key? key,
     required this.title,
@@ -20,6 +21,7 @@ class HeadingWidget extends StatelessWidget {
     this.onPressed,
     this.titleColor,
     this.subtitleColor,
+    this.textAlign,
   }) : super(key: key);
 
   @override
@@ -31,10 +33,11 @@ class HeadingWidget extends StatelessWidget {
           Expanded(
             child: Text(
               title,
+              textAlign: textAlign,
               style: TextStyle(
                 fontSize: titleFontSize,
                 fontWeight: FontWeight.bold,
-                color: titleColor ?? Colors.black,
+                color: titleColor,
               ),
             ),
           ),
@@ -66,6 +69,7 @@ Widget H1({
   Function? onPressed,
   Color? titleColor,
   Color? subtitleColor,
+  TextAlign? textAlign,
 }) {
   return HeadingWidget(
     title: title,
@@ -75,6 +79,7 @@ Widget H1({
     onPressed: onPressed,
     titleColor: titleColor,
     subtitleColor: subtitleColor,
+    textAlign: textAlign,
   );
 }
 
@@ -84,6 +89,7 @@ Widget H2({
   Function? onPressed,
   Color? titleColor,
   Color? subtitleColor,
+  TextAlign? textAlign,
 }) {
   return HeadingWidget(
     title: title,
@@ -93,6 +99,7 @@ Widget H2({
     onPressed: onPressed,
     titleColor: titleColor,
     subtitleColor: subtitleColor,
+    textAlign: textAlign,
   );
 }
 
@@ -102,6 +109,7 @@ Widget H3({
   Function? onPressed,
   Color? titleColor,
   Color? subtitleColor,
+  TextAlign? textAlign,
 }) {
   return HeadingWidget(
     title: title,
@@ -111,6 +119,7 @@ Widget H3({
     onPressed: onPressed,
     titleColor: titleColor,
     subtitleColor: subtitleColor,
+    textAlign: textAlign,
   );
 }
 
@@ -120,6 +129,7 @@ Widget H4({
   Function? onPressed,
   Color? titleColor,
   Color? subtitleColor,
+  TextAlign? textAlign,
 }) {
   return HeadingWidget(
     title: title,
@@ -129,6 +139,7 @@ Widget H4({
     onPressed: onPressed,
     titleColor: titleColor,
     subtitleColor: subtitleColor,
+    textAlign: textAlign,
   );
 }
 
@@ -138,6 +149,7 @@ Widget H5({
   Function? onPressed,
   Color? titleColor,
   Color? subtitleColor,
+  TextAlign? textAlign,
 }) {
   return HeadingWidget(
     title: title,
@@ -147,6 +159,7 @@ Widget H5({
     onPressed: onPressed,
     titleColor: titleColor,
     subtitleColor: subtitleColor,
+    textAlign: textAlign,
   );
 }
 
@@ -156,6 +169,7 @@ Widget H6({
   Function? onPressed,
   Color? titleColor,
   Color? subtitleColor,
+  TextAlign? textAlign,
 }) {
   return HeadingWidget(
     title: title,
@@ -165,5 +179,6 @@ Widget H6({
     onPressed: onPressed,
     titleColor: titleColor,
     subtitleColor: subtitleColor,
+    textAlign: textAlign,
   );
 }

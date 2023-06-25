@@ -12,28 +12,30 @@ class QCategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      controller: ScrollController(),
-      scrollDirection: Axis.horizontal,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        child: Row(
-          children: List.generate(items.length, (index) {
-            var category = items[index];
-            return Row(
-              children: [
-                if (index > 0) DotContainer(),
-                Text(
-                  "${category}",
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.grey[600],
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: SingleChildScrollView(
+        controller: ScrollController(),
+        scrollDirection: Axis.horizontal,
+        child: Container(
+          child: Row(
+            children: List.generate(items.length, (index) {
+              var category = items[index];
+              return Row(
+                children: [
+                  if (index > 0) DotContainer(),
+                  Text(
+                    "${category}",
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey[600],
+                    ),
                   ),
-                ),
-              ],
-            );
-          }),
+                ],
+              );
+            }),
+          ),
         ),
       ),
     );
