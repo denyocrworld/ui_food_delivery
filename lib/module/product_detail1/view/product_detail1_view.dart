@@ -231,7 +231,6 @@ class ProductDetail1View extends StatefulWidget {
                           controller.dataMenu.length,
                           (index) {
                             var item = controller.dataMenu[index];
-                            bool selected = index == 1;
 
                             return Container(
                               padding: EdgeInsets.symmetric(
@@ -240,10 +239,8 @@ class ProductDetail1View extends StatefulWidget {
                               ),
                               margin: EdgeInsets.only(right: 10.0),
                               child: InkWell(
-                                onTap: () {
-                                  controller.selectedItem = item;
-                                  controller.setState(() {});
-                                },
+                                onTap: () =>
+                                    controller.updateSelectedItem(item),
                                 child: Center(
                                   child: Text(
                                     "${item}",

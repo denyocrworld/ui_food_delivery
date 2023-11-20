@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../controller/restaurant_list3_controller.dart';
 
 class RestaurantList3View extends StatefulWidget {
   const RestaurantList3View({Key? key}) : super(key: key);

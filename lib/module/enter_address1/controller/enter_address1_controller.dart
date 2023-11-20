@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/enter_address1_view.dart';
 
-class EnterAddress1Controller extends State<EnterAddress1View> implements MvcController {
+class EnterAddress1Controller extends State<EnterAddress1View> {
   static late EnterAddress1Controller instance;
   late EnterAddress1View view;
 

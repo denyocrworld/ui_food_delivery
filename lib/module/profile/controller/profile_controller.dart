@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/profile_view.dart';
 
-class ProfileController extends State<ProfileView> implements MvcController {
+class ProfileController extends State<ProfileView> {
   static late ProfileController instance;
   late ProfileView view;
 

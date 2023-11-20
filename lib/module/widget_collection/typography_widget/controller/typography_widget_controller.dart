@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/typography_widget_view.dart';
 
-class TypographyWidgetController extends State<TypographyWidgetView> implements MvcController {
+class TypographyWidgetController extends State<TypographyWidgetView> {
   static late TypographyWidgetController instance;
   late TypographyWidgetView view;
 

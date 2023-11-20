@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-class ColorWidgetController extends State<ColorWidgetView>
-    implements MvcController {
+class ColorWidgetController extends State<ColorWidgetView> {
   static late ColorWidgetController instance;
   late ColorWidgetView view;
 

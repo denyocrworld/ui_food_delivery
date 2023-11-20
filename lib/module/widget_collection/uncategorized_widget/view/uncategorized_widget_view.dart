@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/shared/widget/uncategorized/location_text/location_text.dart';
 
 class UncategorizedWidgetView extends StatefulWidget {
   const UncategorizedWidgetView({Key? key}) : super(key: key);

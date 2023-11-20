@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-class ModuleListController extends State<ModuleListView>
-    implements MvcController {
+class ModuleListController extends State<ModuleListView> {
   static late ModuleListController instance;
   late ModuleListView view;
 

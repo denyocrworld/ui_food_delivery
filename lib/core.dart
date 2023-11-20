@@ -192,5 +192,3 @@ export 'package:hyper_ui/shared/widget/uncategorized/location_text/location_text
 export 'package:hyper_ui/shared/widget/uncategorized/q_location_text_header/q_location_text_header.dart';
 export 'package:hyper_ui/shared/widget/widget_demo/widget_demo.dart';
 export 'package:hyper_ui/state_util.dart';
-export 'core_package.dart';
-export 'setup.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/card_list1_view.dart';
 
-class CardList1Controller extends State<CardList1View> implements MvcController {
+class CardList1Controller extends State<CardList1View> {
   static late CardList1Controller instance;
   late CardList1View view;
 

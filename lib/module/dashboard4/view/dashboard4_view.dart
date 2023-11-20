@@ -1,9 +1,7 @@
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/shared/widget/uncategorized/q_location_text_header/q_location_text_header.dart';
 
-import '../../../shared/widget/card/product_rating_card/product_rating_card.dart';
 
 class Dashboard4View extends StatefulWidget {
   Dashboard4View({Key? key}) : super(key: key);

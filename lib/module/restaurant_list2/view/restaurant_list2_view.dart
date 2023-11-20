@@ -34,14 +34,14 @@ class RestaurantList2View extends StatefulWidget {
                               builder: (context) {
                                 List<Marker> allMarkers = [
                                   Marker(
-                                    point: LatLng(
-                                      -6.1754234,
-                                      106.827224,
-                                    ),
-                                    builder: (context) => const Icon(
+                                    child: Icon(
                                       Icons.pin_drop,
                                       color: Colors.red,
                                       size: 24,
+                                    ),
+                                    point: LatLng(
+                                      -6.1754234,
+                                      106.827224,
                                     ),
                                   ),
                                 ];
@@ -50,13 +50,11 @@ class RestaurantList2View extends StatefulWidget {
                                       MediaQuery.of(context).size.height * 0.4,
                                   child: FlutterMap(
                                     options: MapOptions(
-                                      center: LatLng(
+                                      initialCenter: LatLng(
                                         -6.1754234,
                                         106.827224,
                                       ),
-                                      zoom: 16,
-                                      interactiveFlags: InteractiveFlag.all -
-                                          InteractiveFlag.rotate,
+                                      initialZoom: 16,
                                     ),
                                     children: [
                                       TileLayer(

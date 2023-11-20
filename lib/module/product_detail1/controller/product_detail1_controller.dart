@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/product_detail1_view.dart';
 
-class ProductDetail1Controller extends State<ProductDetail1View>
-    implements MvcController {
+class ProductDetail1Controller extends State<ProductDetail1View> {
   static late ProductDetail1Controller instance;
   late ProductDetail1View view;
 
@@ -220,4 +219,9 @@ class ProductDetail1Controller extends State<ProductDetail1View>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     },
   ];
+
+  updateSelectedItem(String item) {
+    selectedItem = item;
+    setState(() {});
+  }
 }

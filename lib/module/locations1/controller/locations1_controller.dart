@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/locations1_view.dart';
 
-class Locations1Controller extends State<Locations1View> implements MvcController {
+class Locations1Controller extends State<Locations1View> {
   static late Locations1Controller instance;
   late Locations1View view;
 

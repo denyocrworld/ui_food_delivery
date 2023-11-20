@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/module/dashboard3/widget/dashboard_horizontal_list.dart';
-import '../../../shared/widget/uncategorized/q_location_text_header/q_location_text_header.dart';
 
 class Dashboard3View extends StatefulWidget {
   Dashboard3View({Key? key}) : super(key: key);

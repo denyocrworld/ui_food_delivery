@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/add_social_accounts1_view.dart';
 
-class AddSocialAccounts1Controller extends State<AddSocialAccounts1View> implements MvcController {
+class AddSocialAccounts1Controller extends State<AddSocialAccounts1View> {
   static late AddSocialAccounts1Controller instance;
   late AddSocialAccounts1View view;
 

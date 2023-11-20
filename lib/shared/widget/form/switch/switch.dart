@@ -68,11 +68,6 @@ class _QSwitchState extends State<QSwitch> {
                     field.didChange(true);
                     setState(() {});
 
-                    String? label = items[index]["label"];
-                    int foundIndex =
-                        items.indexWhere((item) => item["label"] == label);
-                    dynamic value = items[foundIndex]["value"];
-
                     List<Map<String, dynamic>> selectedValues =
                         items.where((i) => i["checked"] == true).toList();
 

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/shared/widget/carousel/carousel.dart';
-import '../../../../shared/widget/carousel/carousel_with_bottom_right_slider.dart';
 
 class CarouselWidgetView extends StatefulWidget {
   CarouselWidgetView({Key? key}) : super(key: key);

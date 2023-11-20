@@ -1,6 +1,4 @@
-
 import 'package:dio/dio.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
@@ -47,7 +45,7 @@ class QListViewState extends State<QListView> {
   bool loading = true;
   bool bottomLoading = false;
   Response? response;
-  DioError? dioError;
+  DioException? dioException;
   List<Map?> items = [];
   int page = 1;
   ScrollController scrollController = ScrollController();
@@ -67,17 +65,17 @@ class QListViewState extends State<QListView> {
       page++;
     }
 
-    dioError = null;
+    dioException = null;
     try {
       response = await widget.futureBuilder(page);
-    } on DioError catch (_) {
-      dioError = _;
-      debugPrint("DioError: $_");
+    } on DioException catch (_) {
+      dioException = _;
+      debugPrint("DioException: $_");
     } on Exception catch (_) {
       debugPrint("Exception: $_");
     }
 
-    if (dioError != null || response == null) {
+    if (dioException != null || response == null) {
       loading = false;
       if (mounted) setState(() {});
       return;
@@ -152,109 +150,35 @@ class QListViewState extends State<QListView> {
       );
     }
 
-    if (dioError != null) {
-      return SizedBox(
-        height: widget.height,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Dio Error : ${dioError?.message}",
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.refresh),
-              label: const Text("Retry"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey,
-              ),
-              onPressed: () {
-                onLoading();
-              },
-            ),
-          ],
-        ),
-      );
-    }
-
-    if (response == null) {
-      return SizedBox(
-        height: widget.height,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Null response : ${response?.statusCode}",
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.refresh),
-              label: const Text("Refresh"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey,
-              ),
-              onPressed: () {
-                onLoading();
-              },
-            ),
-          ],
-        ),
-      );
-    }
-
-    return Container(
+    return SizedBox(
       height: widget.height,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(widget.padding ?? 0.0),
-      decoration: BoxDecoration(
-        color: widget.color,
-        gradient: widget.gradient,
-      ),
-      child: RefreshIndicator(
-        onRefresh: () async {
-          await reload();
-        },
-        child: ScrollConfiguration(
-          behavior: ScrollConfiguration.of(context).copyWith(
-            dragDevices: {
-              PointerDeviceKind.touch,
-              PointerDeviceKind.mouse,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Dio Error : ${dioException?.message}",
+            style: const TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          ElevatedButton.icon(
+            icon: const Icon(Icons.refresh),
+            label: const Text("Retry"),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blueGrey,
+            ),
+            onPressed: () {
+              onLoading();
             },
           ),
-          child: ListView.builder(
-            controller: scrollController,
-            itemCount: items.length,
-            shrinkWrap: widget.shrinkWrap,
-            scrollDirection: widget.scrollDirection ?? Axis.vertical,
-            itemBuilder: (context, index) {
-              Map item = (items[index] as Map);
-              return Container(
-                margin: EdgeInsets.only(
-                  bottom: widget.bottomMargin ?? 0.0,
-                ),
-                child: widget.builder(index, item),
-              );
-            },
-          ),
-        ),
+        ],
       ),
     );
   }
 }
-

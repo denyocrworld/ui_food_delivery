@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
 import '../view/account_setting1_view.dart';
 
-class AccountSetting1Controller extends State<AccountSetting1View> implements MvcController {
+class AccountSetting1Controller extends State<AccountSetting1View> {
   static late AccountSetting1Controller instance;
   late AccountSetting1View view;
 

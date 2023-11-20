@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/shared/widget/form/digit/digit.dart';
 
 class ConfirmPhoneNumber1View extends StatefulWidget {
   const ConfirmPhoneNumber1View({

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/main_navigation_view.dart';
 
-class MainNavigationController extends State<MainNavigationView>
-    implements MvcController {
+class MainNavigationController extends State<MainNavigationView> {
   static late MainNavigationController instance;
   late MainNavigationView view;
 

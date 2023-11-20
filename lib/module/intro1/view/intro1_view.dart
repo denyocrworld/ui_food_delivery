@@ -11,11 +11,6 @@ class Intro1View extends StatefulWidget {
       body: SafeArea(
         child: Column(
           children: [
-            /*
-            TODO: Implement this @ controller
-            int currentIndex = 0;
-            final CarouselController carouselController = CarouselController();
-            */
             Expanded(
               child: LayoutBuilder(builder: (context, constraint) {
                 List<Map<String, dynamic>> images = [
@@ -49,10 +44,8 @@ class Intro1View extends StatefulWidget {
                           autoPlay: true,
                           enlargeCenterPage: false,
                           viewportFraction: 1.0,
-                          onPageChanged: (index, reason) {
-                            controller.currentIndex = index;
-                            controller.setState(() {});
-                          },
+                          onPageChanged: (index, reason) =>
+                              controller.updateIndex(index),
                         ),
                         items: images.map((item) {
                           return Builder(

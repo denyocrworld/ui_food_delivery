@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/form_widget_view.dart';
 
-class FormWidgetController extends State<FormWidgetView> implements MvcController {
+class FormWidgetController extends State<FormWidgetView> {
   static late FormWidgetController instance;
   late FormWidgetView view;
 

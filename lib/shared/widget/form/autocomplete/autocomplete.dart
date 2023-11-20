@@ -66,12 +66,12 @@ class _QAutoCompleteState extends State<QAutoComplete> {
               return Autocomplete<Map>(
                 fieldViewBuilder: (context, textEditingController, focusNode,
                     onFieldSubmitted) {
-                  var value = items.first["label"];
+                  var _ = items.first["label"];
                   if (widget.value != null) {
                     var searchItems =
                         items.where((i) => i["value"] == widget.value).toList();
                     if (searchItems.isNotEmpty) {
-                      value = searchItems.first["label"];
+                      _ = searchItems.first["label"];
                     }
                   }
 

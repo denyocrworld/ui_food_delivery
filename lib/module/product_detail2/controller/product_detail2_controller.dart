@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/product_detail2_view.dart';
 
-class ProductDetail2Controller extends State<ProductDetail2View>
-    implements MvcController {
+class ProductDetail2Controller extends State<ProductDetail2View> {
   static late ProductDetail2Controller instance;
   late ProductDetail2View view;
 
@@ -19,7 +18,7 @@ class ProductDetail2Controller extends State<ProductDetail2View>
   @override
   Widget build(BuildContext context) => widget.build(context, this);
 
-  String selectedIte = "";
+  String selectedItem = "";
 
   List products = [
     {
@@ -221,4 +220,9 @@ class ProductDetail2Controller extends State<ProductDetail2View>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     },
   ];
+
+  updateSelectedItem(String item) {
+    selectedItem = item;
+    setState(() {});
+  }
 }

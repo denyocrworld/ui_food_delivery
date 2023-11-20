@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/button_widget_view.dart';
 
-class ButtonWidgetController extends State<ButtonWidgetView> implements MvcController {
+class ButtonWidgetController extends State<ButtonWidgetView> {
   static late ButtonWidgetController instance;
   late ButtonWidgetView view;
 

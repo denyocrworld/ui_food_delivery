@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/reset_email1_view.dart';
 
-class ResetEmail1Controller extends State<ResetEmail1View> implements MvcController {
+class ResetEmail1Controller extends State<ResetEmail1View> {
   static late ResetEmail1Controller instance;
   late ResetEmail1View view;
 

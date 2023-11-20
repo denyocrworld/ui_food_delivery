@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/dashboard3_view.dart';
 
-class Dashboard3Controller extends State<Dashboard3View>
-    implements MvcController {
+class Dashboard3Controller extends State<Dashboard3View> {
   static late Dashboard3Controller instance;
   late Dashboard3View view;
 

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
 
 import '../view/restaurant_list3_view.dart';
 
-class RestaurantList3Controller extends State<RestaurantList3View>
-    implements MvcController {
+class RestaurantList3Controller extends State<RestaurantList3View> {
   static late RestaurantList3Controller instance;
   late RestaurantList3View view;
 

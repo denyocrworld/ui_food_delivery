@@ -1,6 +1,5 @@
 import 'package:hyper_ui/core.dart';
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/debug.dart';
 
 void main() async {
   await initialize();

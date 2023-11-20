@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/filter1_view.dart';
 
-class Filter1Controller extends State<Filter1View> implements MvcController {
+class Filter1Controller extends State<Filter1View> {
   static late Filter1Controller instance;
   late Filter1View view;
 

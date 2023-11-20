@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class QLocationText extends StatelessWidget {
   final String title;
   final Function? onPressed;
-  const QLocationText({
+  QLocationText({
     Key? key,
     required this.title,
     this.onPressed,
@@ -25,7 +25,7 @@ class QLocationText extends StatelessWidget {
             style: TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w500,
-                color: const Color(0xff22A45D)),
+                color: Color(0xff22A45D)),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,7 +40,7 @@ class QLocationText extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Icon(
+                  Icon(
                     MdiIcons.chevronDown,
                     size: 24.0,
                   ),

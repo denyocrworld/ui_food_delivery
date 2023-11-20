@@ -8,12 +8,11 @@ class Get {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   static get currentContext {
-    
     return navigatorKey.currentState?.context;
   }
 
   static to(Widget page) async {
-    await navigatorKey.currentState!.push(
+    return await navigatorKey.currentState!.push(
       MaterialPageRoute(builder: (context) => page),
     );
   }
@@ -24,7 +23,7 @@ class Get {
   }
 
   static offAll(page) {
-    navigatorKey.currentState!.pushAndRemoveUntil(
+    return navigatorKey.currentState!.pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => page),
       (Route<dynamic> route) => false,
     );
@@ -48,13 +47,3 @@ class Get {
     return Theme.of(Get.currentContext);
   }
 }
-
-extension ChangeNotifierExtension on State {
-  update() {
-    if (mounted) {
-      setState(() {});
-    }
-  }
-}
-
-class MvcController {}

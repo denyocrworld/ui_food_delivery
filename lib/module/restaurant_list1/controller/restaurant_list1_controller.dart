@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/module/restaurant_list1/data/restaurant_dummy.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/restaurant_list1_view.dart';
 
 class Restaurant {
@@ -35,7 +35,7 @@ class Restaurant {
   }
 }
 
-class RestaurantList1Controller extends State<RestaurantList1View> implements MvcController {
+class RestaurantList1Controller extends State<RestaurantList1View> {
   static late RestaurantList1Controller instance;
   late RestaurantList1View view;
   final restaurantList = <Restaurant>[];
@@ -49,7 +49,8 @@ class RestaurantList1Controller extends State<RestaurantList1View> implements Mv
   }
 
   void loadData() {
-    restaurantList.addAll(List<Restaurant>.from(restaurantDummyData.map((e) => Restaurant.fromJson(e))));
+    restaurantList.addAll(List<Restaurant>.from(
+        restaurantDummyData.map((e) => Restaurant.fromJson(e))));
   }
 
   @override

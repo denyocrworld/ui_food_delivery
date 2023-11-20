@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/uncategorized_widget_view.dart';
 
-class UncategorizedWidgetController extends State<UncategorizedWidgetView> implements MvcController {
+class UncategorizedWidgetController extends State<UncategorizedWidgetView> {
   static late UncategorizedWidgetController instance;
   late UncategorizedWidgetView view;
 

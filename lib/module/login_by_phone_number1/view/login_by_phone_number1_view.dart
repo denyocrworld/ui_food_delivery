@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../../../shared/widget/form/country_picker/country_picker.dart';
 
 class LoginByPhoneNumber1View extends StatefulWidget {
   LoginByPhoneNumber1View({Key? key}) : super(key: key);

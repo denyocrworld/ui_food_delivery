@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/favorite_view.dart';
 
-class FavoriteController extends State<FavoriteView> implements MvcController {
+class FavoriteController extends State<FavoriteView> {
   static late FavoriteController instance;
   late FavoriteView view;
 

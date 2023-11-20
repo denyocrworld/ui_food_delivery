@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../../../../shared/widget/typography/category_list/category_list.dart';
 
 class TypographyWidgetView extends StatefulWidget {
   TypographyWidgetView({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
 class MainNavigationView extends StatefulWidget {
-  const MainNavigationView({Key? key}) : super(key: key);
+  MainNavigationView({Key? key}) : super(key: key);
 
   Widget build(context, MainNavigationController controller) {
     controller.view = this;
@@ -13,7 +13,7 @@ class MainNavigationView extends StatefulWidget {
       child: Scaffold(
         body: IndexedStack(
           index: controller.selectedIndex,
-          children: const [
+          children: [
             DashboardView(),
             OrderView(),
             FavoriteView(),
@@ -23,7 +23,7 @@ class MainNavigationView extends StatefulWidget {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: controller.selectedIndex,
           onTap: (newIndex) => controller.updateIndex(newIndex),
-          items: const [
+          items: [
             BottomNavigationBarItem(
               icon: Icon(
                 MdiIcons.viewDashboard,

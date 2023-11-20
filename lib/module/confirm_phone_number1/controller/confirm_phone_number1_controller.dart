@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/confirm_phone_number1_view.dart';
 
-class ConfirmPhoneNumber1Controller extends State<ConfirmPhoneNumber1View> implements MvcController {
+class ConfirmPhoneNumber1Controller extends State<ConfirmPhoneNumber1View> {
   static late ConfirmPhoneNumber1Controller instance;
   late ConfirmPhoneNumber1View view;
 

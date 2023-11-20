@@ -196,7 +196,6 @@ class ProductDetail2View extends StatefulWidget {
                     controller.dataMenu.length,
                     (index) {
                       var item = controller.dataMenu[index];
-                      bool selected = index == 1;
 
                       return Container(
                         padding: const EdgeInsets.symmetric(
@@ -205,17 +204,14 @@ class ProductDetail2View extends StatefulWidget {
                         ),
                         margin: const EdgeInsets.only(right: 10.0),
                         child: InkWell(
-                          onTap: () {
-                            controller.selectedIte = item;
-                            controller.setState(() {});
-                          },
+                          onTap: () => controller.updateSelectedItem(item),
                           child: Center(
                             child: Text(
                               "${item}",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 24.0,
-                                  fontWeight: (controller.selectedIte == index)
+                                  fontWeight: (controller.selectedItem == index)
                                       ? FontWeight.w600
                                       : FontWeight.w400),
                             ),

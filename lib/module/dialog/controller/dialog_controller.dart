@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+
 import '../view/dialog_view.dart';
 
-class DialogController extends State<DialogView> implements MvcController {
+class DialogController extends State<DialogView> {
   static late DialogController instance;
   late DialogView view;
 
